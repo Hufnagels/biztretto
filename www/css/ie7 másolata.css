@@ -1,0 +1,20 @@
+#header .container {border-bottom:none;}
+.clearfix {height:1px;}
+.navbar-inner {filter:none;}
+.navbar .CorporateBrand {margin: 10px 0px 10px 30px;width:230px;}
+.navbar .CorporateName {margin-left: 0px;position:relative;width:180px;}
+
+.navbar .searchBar {width:460px;}
+.navbar .form-search input {height:18px;}
+.navbar .form-search .btn-group {position:absolute;margin-top:1px;margin-left:-5px;}
+
+.row .span4.menu{ width:490px;}
+.well-small {padding-left:5px; padding-right:3px;}
+.nav .drop-down-toggle .caret {float:right;display:inline-block;position:absolute;right:0;top:30px;}
+.UserNameDiv {display:block;float:left;margin-top:5px;}
+#main-loading img {display:block;}
+
+.slides-nav.row {width:1170px;margin-left:0px;margin-right:0px;}
+.slides-nav li.span4 {width:388px;margin-right:0px;}
+.slider-wrapper{height:431px;}
+.boxHolderBG {background-attachment:inerhited;}

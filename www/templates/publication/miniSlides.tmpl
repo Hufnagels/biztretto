@@ -1,0 +1,16 @@
+<!-- template mini slidesshows-->
+<script type="text/x-tmpl" id="tmpl-miniSlides">
+    {% for (var i=0, slides; slide=o.result[i]; i++) { %}
+    <li id="{%=slide.id%}" class="slideElement slideshowslide span2" data-name="{%=slide.name%}"
+        data-description="{%=slide.description%}" data-cover="{%=slide.cover%}">
+        <div class="dataHolder">
+            <div class="leftSide">
+                {% if (slide.cover !== '' || slide.cover !==null) { %}<img src="{%=slide.cover%}"/>{% } %}
+            </div>
+            <div class="rightSide">
+                <span class="name">{%=slide.name%}</span>
+            </div>
+        </div>
+    </li>
+    {% } %}
+</script>

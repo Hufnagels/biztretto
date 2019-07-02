@@ -1,0 +1,46 @@
+<!-- template: credits -->
+    <script type="text/x-tmpl" id="tmpl-credits1">
+        {% var summa = 0; var solved = 0; var unsolved = 0; %}
+        {% for (var i=0, boxes; boxes=o.result[i]; i++) { %}
+        {% solved = Number(solved) + Number(boxes.solved); %}
+        {% if (boxes.type == 1) { %}
+        <li class="mediaBox mbcholder span2 lightgreyB"
+            data-object-id="{%=boxes.id%}"
+            data-object-type="traininggroup"
+            data-object-name="{%=boxes.doname%}">
+            <div class="mbHeader">
+                <div class="name">{%=boxes.name%}</div>
+                <div class="clearfix"></div>
+                <div class="progress">
+                    <div class="bar bar-success" style="width: {%= 0/boxes.sumCredit*100%}%;"></div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="pull-left"><span class="badge1">0/{%=boxes.pieces%}</span></div>
+            </div>
+        </li>
+        {% summa = Number(summa) + Number(boxes.sumCredit); %}
+        {% } %}
+        {% } %}
+        <li class="mediaBox mbcholder span2 middlegreyB2">
+            <div class="mbHeader">
+                <div class="name"><span class="count">{%=o.result.length%}</span> trainings</div>
+                <div class="clearfix"></div>
+                <div class="progress">
+                    <div class="bar bar-success" style="width: {%=solved/o.result.length*100%}%;"></div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="pull-left"><span class="badge1"><span class="count">{%=solved%}</span> solved</span></div>
+            </div>
+        </li>
+
+    </script>
+
+    <script type="text/x-tmpl" id="tmpl-credits">
+            {% var summa = 0; var solved = 0; var unsolved = 0; %}
+            {% for (var i=0, boxes; boxes=o.result[i]; i++) { %}
+            {% solved = Number(solved) + Number(boxes.solved); %}
+
+            {% } %}
+                    <li><h2 class="summ">{%=o.result.length%} trainings <i class="icon-angle-right"></i></h2></li>
+                    <li id="linkName" class="active"><h2 class="count"> <strong>{%=solved%} solved</strong></h2></li>
+        </script>

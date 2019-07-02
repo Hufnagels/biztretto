@@ -1,0 +1,143 @@
+<style>
+
+</style>
+<div class="row">
+
+<div class="span12">
+  <h3 class="orangeT colHeader" style="float: none;overflow: hidden;">
+    <ul class="slides-nav row middlegreyB">  
+      <li class="span4 selected"><a href="javascript:void(0);" rel="0" class="whiteT orangeT">egyszerű</a></li>  
+      <li class="span4"><a href="javascript:void(0);" rel="1" class="whiteT">hatékony</a></li>  
+      <li class="span4"><a href="javascript:void(0);" rel="2" class="whiteT">mérhető</a></li>  
+    </ul> 
+  </h3>
+  <div class="slider-wrapper">
+    <ul id="slider" class="bxslider">
+        <li>
+                <img src="/images/landing01.jpg" alt="" />
+        </li>
+        <li>
+                <img src="/images/landing02.jpg" alt="" />
+        </li>
+        <li>
+                <img src="/images/landing03.jpg" alt="" />
+        </li>
+      </ul>
+  </div>
+</div>
+<div class="clearfix"></div>
+<div class="span2"></div>
+<div class="span8">
+  
+  <div class="row boxHolder boxHolderBG">
+    <h1 class="whiteT contentHeader"><span style="">Regisztráljon, és próbálja ki ingyenes demó tréningünket!</span></h1>
+
+    <div class="span2 darkgreyB first" style="">
+      <div class="registerbox">
+        <div class="pointer-right"></div>
+        <h3 class="colHeaderNoBorder orangeT">Regisztráljon!</h3>
+        <form id="registrationForm" action="" method="post">
+          <div class="control-group">
+            <label>név</label>
+            <input type="text" name="name" class="input-medium" placeholder="név">
+          </div>
+          <div class="control-group">
+            <label>telefon</label>
+            <input type="text" name="phone" class="input-medium" placeholder="telefon">
+          </div>
+          <div class="control-group">
+            <label>email</label>
+            <input type="text" name="email" class="input-medium" placeholder="email">
+            <button type="submit" class="btn btn-dark" id="registerNow">Regisztrálok</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="span2 darkgreyB">
+      <div class="minicontentbox box001">
+      <div class="pointer-right"></div>
+      <h3 class="colHeaderNoBorder orangeT">fedezze fel</h3>
+        <p class="whiteT">rendkívül egyszerűen kezelhető tréning készítő alkalmazást!</p>
+        <div class="imgHolder"><img src="/images/box01.png" /></div><!---->
+      </div>
+    </div>
+    
+    <div class="span2 darkgreyB">
+      <div class="minicontentbox">
+      <div class="pointer-right"></div>
+        <h3 class="colHeaderNoBorder orangeT">ismerje meg</h3>
+        <p class="whiteT">hogyan segítheti munkáját egységes vizsgáztató rendszerünk!</p>
+        <div class="imgHolder"><img src="/images/box02.png" /></div>
+      </div>
+    </div>
+
+    <div class="span2 darkgreyB last">
+      <div class="minicontentbox">
+      <h3 class="colHeaderNoBorder orangeT">próbálja ki</h3>
+      <p class="whiteT">átlátható, minden részletre kiterjedő kiértékelési felületünket!</p>
+      <div class="imgHolder"><img src="/images/box03.png" /></div>
+      </div>
+    </div>
+  </div>
+  <div style="height:100px">
+    <div id="registrationMessage" class="alert"></div>
+  </div>
+</div>
+<div class="span2"></div>
+</div>
+<script type="text/javascript">
+  var slider = $('#slider').bxSlider({
+    speed:2000,
+    auto: true,
+    pager: false,
+    controls: false,
+    onSlideNext: function(Element, oldIndex, newIndex){
+      $('.slides-nav li').removeClass('selected');
+      $('.slides-nav li a').removeClass('orangeT');
+      $('.slides-nav').find("a[rel='" + newIndex + "']").addClass('orangeT').parent().addClass('selected');
+    }
+  });
+  
+  $('.slides-nav a').live('click', function(){
+    $('.slides-nav li').removeClass('selected');
+    $(this).parent().addClass('selected');
+    slider.goToSlide( $(this).attr('rel') );
+  });
+  
+  $("#registrationForm").validate({
+    rules:{name:"required",email:{required:true,email: true},phone:"required"},
+    messages:{name:"",email:{required:"",email:""},phone:""},
+    errorClass: "help-inline",
+    highlight:function(element, errorClass, validClass) {
+      $(element).parents('.control-group').addClass('errorO');
+		},
+		unhighlight: function(element, errorClass, validClass) {
+			$(element).parents('.control-group').removeClass('errorO');
+		},
+    submitHandler: function(form) {
+      var dataString = $('form#registrationForm').serialize();
+      $.ajax({
+        type: 'post',
+        url: '/pages/registration/register.php',
+        data: dataString,
+        dataType:'json',
+        success: function(data){
+          $('#registrationMessage').html(removeDiacritics(data.message)).addClass('alert-success').show();
+//          $('input', '#registrationForm').val('');
+//console.log( removeDiacritics(data.message) );
+          setTimeout(function() {
+          $('#registrationMessage').hide('slow').html('').removeClass('alert-success');
+          }, 10000);
+        },
+        error: function(response, status, xhr){
+          $('#registrationMessage').html(response).addClass('alert-success');
+        }
+      });
+   }
+  });
+  
+  $('#registerNow').bind('click', function(e){
+    e.preventDefault();
+    $('#registrationForm').submit();
+  });
+</script>

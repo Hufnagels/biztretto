@@ -1,0 +1,209 @@
+<?php
+
+//config
+/**
+ * Setup company data
+ */
+$nameTag='onlinemarketing';
+$officeType = 'office';
+//end config
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// STEP 1 - CREATE DATABASE
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+$_SERVER['DOCUMENT_ROOT'] = '/var/www/varsoft.hu/biztretto/www/';
+$newDBName = 'vs_biztretto_'.$nameTag;
+
+require('/var/www/varsoft.hu/biztretto/include/config.php');
+
+//test - MySQL::runCommand('DROP DATABASE skilldev_valzol');
+
+$res = MySQL::runCommand('CREATE DATABASE '.$newDBName.' DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci');
+
+if (!$res) exit("Create Database error! (db exists)");
+
+//- $res = MySQL::runCommand('GRANT ALL PRIVILEGES ON `'.$newDBName.'` . * TO "'.DB_NAME.'@localhost"');
+
+print "\r\n\tCopy database...\r\n";
+
+exec('mysqldump -u'.DB_USER.' -p'.DB_PASS.' vs_biztretto_trillala > default.sql');
+exec('mysql -u'.DB_USER.' -p'.DB_PASS.' -D '.$newDBName.' < default.sql');
+
+MySQL::changeDB($newDBName);
+
+print "\r\n\tTruncate tables...\r\n";
+
+foreach (MySQL::resultArray(MySQL::executeQuery('SHOW TABLES'),MySQL::fmIndex) as $tbl)
+{
+    print "\t- ".$tbl[0]."\r\n";
+    MySQL::runCommand('TRUNCATE `'.$tbl[0].'`');
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// STEP 2 - CREATE USERS -> ANONYM, SUPERADMIN, ...site admin
+//////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * Create new anonym user for company
+ * user_id = 1
+ */
+$adminName='Anonym User';
+$adminEmail='anonym@a.com';
+$adminPass='sgVH12F;Mlkl+3';
+$adminVezetek = 'Anonym';
+$adminKereszt = 'User';
+$userLevel = 1;
+
+$user = new User(null);
+$user->setDBField('user_type','office');
+$user->setDBField('office_nametag',$nameTag);
+$user->setDBField('office_id',1);
+$user->setDBField('vezeteknev',$adminVezetek);
+$user->setDBField('keresztnev',$adminKereszt);
+$user->setDBField('fullname',$adminName);
+$user->setDBField('user_email',$adminEmail);
+$user->setDBField('userlevel', $userLevel);
+$user->setDBField('parent_id',0);
+$user->setDBField('birthDate','0000-00-00');
+$user->setDBField('approved',1);
+$user->setDBField('activeState',1);
+$user->setDBField('activation_time',date('Y-m-d H:i:s'));
+$user->setDBField('isvisible',0);
+$user->changePassword($adminPass);
+$user->save();
+
+/**
+ * add site admin
+ * sample: 
+ * username: eco@varsoft.hx
+ * password: abcabc123
+ * user_id = 2
+ */
+ 
+$adminEmail=$nameTag.'@v.hu';
+$adminPass='ab';  
+
+$user = new User(null);
+$user->setDBField('user_type','office');
+$user->setDBField('office_nametag',$nameTag);
+$user->setDBField('office_id',1);
+$user->setDBField('vezeteknev','Super');
+$user->setDBField('keresztnev','Admin');
+$user->setDBField('fullname','Super Admin');
+$user->setDBField('user_email',$adminEmail);
+$user->setDBField('userlevel', SUPER_ADMIN_LEVEL);
+$user->setDBField('parent_id',0);
+$user->setDBField('birthDate','0000-00-00');
+$user->setDBField('approved',1);   
+$user->setDBField('activeState',1);
+$user->setDBField('activation_time',date('Y-m-d H:i:s'));
+$user->changePassword($adminPass);
+$user->save();
+
+if ($user->getId())
+{
+    print "\r\n\tSuper Admin user created. E-mail: ".$adminEmail.' / '.$adminPass."\r\n";
+    
+    User::globalSkillUserAdd($user->getDBField('user_email'),$nameTag);
+}
+
+/**
+ * Create new admin user for company
+ * user_id = 3
+ */
+$adminName='Berenyi Konrad';
+$adminEmail='berenyi.konrad@onlinemarketing.hu';
+$adminPass='abcabc';
+$adminVezetek = 'Berenyi';
+$adminKereszt = 'Konrad';
+$userLevel = OFFICE_ADMIN_LEVEL;
+
+$user = new User(null);
+$user->setDBField('user_type','office');
+$user->setDBField('office_nametag',$nameTag);
+$user->setDBField('office_id',1);
+$user->setDBField('vezeteknev',$adminVezetek);
+$user->setDBField('keresztnev',$adminKereszt);
+$user->setDBField('fullname','Super Admin');
+$user->setDBField('user_email',$adminEmail);
+$user->setDBField('userlevel', $userLevel);
+$user->setDBField('parent_id',0);
+$user->setDBField('birthDate','0000-00-00');
+$user->setDBField('approved',1);
+$user->setDBField('activeState',1);
+$user->setDBField('activation_time',date('Y-m-d H:i:s'));
+$user->changePassword($adminPass);
+$user->save();
+
+//add to glb table to create login 
+
+if ($user->getId())
+{
+    print "\r\n\tAdmin user created. E-mail: ".$adminEmail.' / '.$adminPass."\r\n";
+
+    User::globalSkillUserAdd($user->getDBField('user_email'),$nameTag);
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// STEP 3 - CREATE OFFICE
+//////////////////////////////////////////////////////////////////////////////////////////////////
+        
+/**
+ * Create office
+ */
+$office = new Office(null);
+$office->setDBField('office_nametag',$nameTag);
+$office->setDBField('office_name_hu',$nameTag);
+$office->setDBField('office_email',$adminEmail);
+$office->setDBField('office_type',$officeType);
+$office->save();
+
+if ($office->getId())
+{
+    print "\r\n\tOffice created.\r\n";
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+// STEP 4 - CREATE DIRECTORIES
+//////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * create directories
+ */
+$mediaDiskArea = new MediaDiskArea(null);
+$mediaDiskArea->setDBField('office_id','1');
+$mediaDiskArea->setDBField('office_nametag',$nameTag);
+$mediaDiskArea->setDBField('name','default');
+$mediaDiskArea->setDBField('sortname','default');
+$mediaDiskArea->setDBField('owner','1');
+$mediaDiskArea->setDBField('size','0');
+if ($mediaDiskArea->save())	print "\r\n\tMediaDiskArea created: ".$mediaDiskArea->getDBField('name')."\r\n";
+
+
+$mediaDiskArea = new MediaDiskArea(null);
+$mediaDiskArea->setDBField('office_id','1');
+$mediaDiskArea->setDBField('office_nametag',$nameTag);
+$mediaDiskArea->setDBField('name','corporate');
+$mediaDiskArea->setDBField('sortname','corporate');
+$mediaDiskArea->setDBField('owner','1');
+$mediaDiskArea->setDBField('size','0');
+if ($mediaDiskArea->save())	print "\r\n\tMediaDiskArea created: ".$mediaDiskArea->getDBField('name')."\r\n";
+
+if ((mkdir($d=IMGPATH.$nameTag,true,0775)) and (chgrp($d,'www-data')) and (chmod($d,0775)))
+    print "\r\n\tFileSystem root folder created: ".$d."\r\n";
+
+if ((mkdir($d=IMGPATH.$nameTag.'/default',true,0775)) and (chgrp($d,'www-data')) and (chmod($d,0775)))
+    print "\r\n\tFileSystem folder created: ".$d."\r\n";
+
+if ((mkdir($d=IMGPATH.$nameTag.'/corporate',true,0775)) and (chgrp($d,'www-data')) and (chmod($d,0775)))
+    print "\r\n\tFileSystem folder created: ".$d."\r\n";
+
+$symlinks = array('audio-grey.png','doc-grey.png','ppt-grey.png','excel-grey.png','pdf-grey.png');
+
+foreach ($symlinks as $symlinkName)
+{
+    if (symlink(IMGPATH.$symlinkName,$s=IMGPATH.$nameTag.'/'.$symlinkName))
+        print "\r\n\tFileSystem symlink created: ".$s."\r\n";    
+}
+
+print "\r\n";
+?>

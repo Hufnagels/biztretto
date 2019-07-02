@@ -1,0 +1,105 @@
+<?php
+/*********** Specify user levels *************/
+define ("SITE_ADMIN_LEVEL", 9);
+define ("OFFICE_ADMIN_LEVEL", 7);
+define ("EDITOR_LEVEL", 5);
+define ("REFERENT_LEVEL", 3);
+define ("HH_LEVEL", 2);
+define ("USER_LEVEL", 1);
+define ("DEMO_USER_LEVEL", 0);
+
+define ("ACTIVE", 1);
+define ("INACTIVE", 2);
+define ("DELETED", 3);
+define ("ACCENTED", 4);
+
+/*********** COOKIE params *************/
+define("COOKIE_TIME_OUT", 1); //specify cookie timeout in days (default is 10 days)
+define('SALT_LENGTH', 9); // salt for password
+
+/*********** SITE SPECIFIC DIRECTORY's *************/
+define ("IMGPATH","/var/www/skilldev/media/"); // ha nem htaccessesn keresztul megy
+define ("SITEPATH","/var/www/skilldev/www/"); // ha nem htaccessesn keresztul megy
+define ("includePath","/var/www/skilldev/include/");
+
+/*********** SITE SPECIFIC URL's *************/
+define ("IMG_SITE_URL","media.skill.madein.hu");
+define ("SITE_URL","http://skill.madein.hu/");
+
+define ("DOMAINTAG","skill.madein.hu");
+define ("DOMAINTAG_PREGSTRING",".skill\.madein\.hu");
+
+define ("SITENAME","SKILLBI.COM");
+define ("WATERMARK_TEXT","SKILLBI.COM");
+define ("UPLOAD_LIMIT",200); 
+
+define ("DEVMODE", true);
+define ("ACTIONLOGGER_GZIP", false);
+define ("SKILLMAILER_SENDMAIL",false); //csak devmode=false, es skillmailer_sendmail=true eseten megy ki level, egyebkent csak a log mappaba kerul!
+
+/*********** USED REGEX's  *************/
+define ("URL_REGEX", "(?i)\b((?:[a-z][\w-]+:(?:/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))"); 
+
+define ('EMAIL_REGEX','/^\S+@[\w\d.-]{2,}\.[\w]{2,6}$/iU');
+
+define ("SITEADMIN_EMAIL","pisti@varsoft.hu");
+define ("CUSTOMER_SUPPORT_EMAIL","pisti@varsoft.hu");
+define ("HELP_DESK_EMAIL","pisti@varsoft.hu");
+
+
+/*********** USED FOR AUTHENTICATE.PHP  *************/
+$domain= SITE_URL;
+$email='youremail@skill.madein.hu';
+$subject='New user registration notification';
+$from='From: skill.madein.hu';
+
+//Define Recaptcha parameters
+$privatekey ="Your Recaptcha private key";
+$publickey = "Your Recaptcha public key";
+
+//Define length of salt,minimum=10, maximum=35
+$length_salt=15;
+
+//Define the maximum number of failed attempts to ban brute force attackers
+//minimum is 5
+$maxfailedattempt=5;
+
+//Define session timeout in seconds
+//minimum 60 (for one minute)
+$sessiontimeout=60*25;
+
+////////////////////////////////////
+//END OF USER CONFIGURATION/////////
+////////////////////////////////////
+
+
+$loginpage_url= $domain.'';
+$forbidden_url= $domain.'errordocuments/403forbidden.php';
+
+
+define ('BROWSERARRAY', null);
+
+if (defined('PHP_WINDOWS_VERSION_MAJOR'))   setlocale(LC_CTYPE, 'C');
+
+define ("DB_HOST", "localhost"); // set database host
+define ("DB_USER", "slaboo"); // set database user
+define ("DB_PASS","AB20090517"); // set database password
+define ("DB_NAME","skilldev_default"); // set database name
+define ("DB_PREFIX","skilldev_"); // set database name
+
+ini_set("session.cookie_domain", "." . DOMAINTAG);
+
+class SkillGlobalConfig{public static $settings=array('auth.disablecheckxhttprequestheader'=>false);}
+
+session_start();
+
+if (DEVMODE === true)
+{
+    error_reporting(E_WARNING|E_ERROR);
+    ini_set('display_errors',true);
+}
+
+
+require_once('class/autoload.php');
+
+?>

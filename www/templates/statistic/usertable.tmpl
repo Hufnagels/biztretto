@@ -1,0 +1,21 @@
+<!-- template mini usertable-->
+<script type="text/x-tmpl" id="tmpl-usertable">
+    {% for (var i=0, user; user=o.result[i]; i++) { %}
+    <tr><td>{%=user.full_name%}</td><td>{%=user.department%}</td></tr>
+    {% } %}
+</script>
+
+<!-- template: display myUsers -->
+<script type="text/x-tmpl" id="tmpl-usertable2">
+    {% for (var i=0, file; file=o.result[i]; i++) { %}
+    <li class="userElement span2 lightgreyB rootClass"
+        id="{%=file.id%}">
+        <div class="thumbnail" style="width:100px;height:100px">
+            <img src="{% if(file.img){ %}{%=file.img%}{% } else { %}data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=={%}%}" alt="" /></div>
+        <div class="userdata aligncenter">
+            <span class="name span2">{%=file.full_name%}</span>
+            <span class="department span2">{%=file.department%}</span>
+        </div>
+    </li>
+    {% } %}
+</script>

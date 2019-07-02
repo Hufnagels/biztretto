@@ -1,0 +1,139 @@
+<!-- template: add individual User -->
+<script type="text/x-tmpl" id="tmpl-individuser">
+
+    <form id="newuser" action="" methode="post" class="form-horizontal">
+        <table border="0" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+                <!--<td rowspan="" style="width: 80px;vertical-align: top;"><button class="btn btn-dark btn-l" id="addUserPic">Upload picture</button><div class="thumbnail" style="width:50px;height:50px"><img src="" /></div></td>-->
+                <td>
+                    <div class="control-group">
+                        <label class="control-label" for="<?= $formdata['id'][0]; ?>"><?=$formdata['label'][0];?></label>
+
+                        <div class="controls">
+                            <input type="text" name="<?= $formdata['id'][0]; ?>" placeholder="<?= $formdata['pholder'][0]; ?>" value="" class="input-small">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="<?= $formdata['id'][1]; ?>"><?=$formdata['label'][1];?></label>
+
+                        <div class="controls">
+                            <input type="text" name="<?= $formdata['id'][1]; ?>" placeholder="<?= $formdata['pholder'][1]; ?>" value="">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="<?= $formdata['id'][2]; ?>"><?=$formdata['label'][2];?></label>
+
+                        <div class="controls">
+                            <input type="text" name="<?= $formdata['id'][2]; ?>" placeholder="<?= $formdata['pholder'][2]; ?>" value="">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="<?= $formdata['id'][3]; ?>"><?=$formdata['label'][3];?></label>
+
+                        <div class="controls"><select name="<?= $formdata['id'][3]; ?>" class="input-small">
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select></div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="<?= $formdata['id'][4]; ?>"><?=$formdata['label'][4];?></label>
+
+                        <div class="controls">
+                            <input type="text" class="required" name="<?= $formdata['id'][4]; ?>" placeholder="<?= $formdata['pholder'][4]; ?>" value="">
+                        </div>
+                    </div>
+
+                    <div class="divider"><span class="badge">1/3</span></div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="<?= $formdata['id'][5]; ?>"><?=$formdata['label'][5];?></label>
+
+                        <div class="controls">
+                            <input type="text" name="<?= $formdata['id'][5]; ?>" placeholder="<?= $formdata['pholder'][5]; ?>" value="" class="typeahead" data-provide="typeahead">
+                            <ul class="typeahead dropdown-menu" style="top: 69px; left: 19px; display: none;"></ul>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="<?= $formdata['id'][6]; ?>"><?=$formdata['label'][6];?></label>
+
+                        <div class="controls">
+                            <input type="text" name="<?= $formdata['id'][6]; ?>" placeholder="<?= $formdata['pholder'][6]; ?>" value="">
+                        </div>
+                    </div>
+
+                    <div class="divider"><span class="badge">2/3</span></div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="<?= $formdata['id'][7]; ?>"><?=$formdata['label'][7];?></label>
+
+                        <div class="controls">
+                            <input type="text" name="<?= $formdata['id'][7]; ?>" placeholder="<?= $formdata['pholder'][7]; ?>" value="">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="<?= $formdata['id'][8]; ?>"><?=$formdata['label'][8];?></label>
+
+                        <div class="controls">
+                            <input type="text" name="<?= $formdata['id'][8]; ?>" placeholder="<?= $formdata['pholder'][8]; ?>" value="">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="<?= $formdata['id'][9]; ?>"><?=$formdata['label'][9];?></label>
+
+                        <div class="controls">
+                            <input type="text" name="<?= $formdata['id'][9]; ?>" placeholder="<?= $formdata['pholder'][9]; ?>" value="">
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label" for="<?= $formdata['id'][10]; ?>"><?=$formdata['label'][10];?></label>
+
+                        <div class="controls">
+                            <input type="text" name="<?= $formdata['id'][10]; ?>" placeholder="<?= $formdata['pholder'][10]; ?>" value="">
+                        </div>
+                    </div>
+                    <div class="divider"><span class="badge">3/3</span></div>
+
+                </td>
+            </tr>
+        </table>
+    </form>
+    {% for (var i=0, file; file=o.result[i]; i++) { %}{% } %}
+</script>
+
+<!-- template: display myUsers -->
+<script type="text/x-tmpl" id="tmpl-users">
+    {% for (var i=0, file; file=o.result[i]; i++) { %}
+    <li class="userElement span2 rootClass"
+        data-category="{%=file.doname%}"
+        data-name="{%=file.name%}"
+        data-registered="{%=file.registered%}"
+        id="{%=file.id%}"
+        data-email="{%=file.email%}">
+        <div class="colorBar {%=file.active%}"></div>
+        <div class="thumbBorder"><div class="thumbnail" style="width:100px;height:100px"><img src="{%=file.img%}" alt="" /></div></div>
+        <div class="optionBar">
+            <span class="dropdown-toggle" data-toggle="dropdown"><i class="icon-wrench"></i></span>
+            <ul class="dropdown-menu userAction">
+                <li class=""><a href="#" data-action="active">Activate</a></li>
+                <li class=""><a href="#" data-action="inactive">Deactivate</a></li>
+                <li class=""><a href="#" data-action="removefrom">Remove from</a></li>
+                <li class=""><a href="#" data-action="delete">Delete</a></li>
+            </ul>
+            <span class="selectButton" ><i class="icon-ok"></i></span>
+            <span class="detailButton" ><i class="icon-edit"></i></span>
+        </div>
+        <div class="userdata">
+            <span class="name span2">{%=file.fullname%}</span>
+            <span class="department span2">{%=file.department%}</span>
+        </div>
+    </li>
+    {% } %}
+</script>

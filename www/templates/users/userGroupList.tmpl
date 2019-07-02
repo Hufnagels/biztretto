@@ -1,0 +1,28 @@
+<!-- template:usergroups -->
+<script type="text/x-tmpl" id="tmpl-userGroupList">
+    <li class="viewAll mbcholder span2 selected" data-object-id="" data-object-name="viewAll">
+        <div class="mbHeader">
+            <div class="name"><?=$viewAll;?></div>
+            <span class="pull-right badge">{%=o.result[0].badge%}</span>
+
+        </div>
+    </li>
+    {% if (o.result[1]) { %}
+    <li class="viewAll mbcholder span2" data-object-id="" data-object-name="notInList">
+        <div class="mbHeader">
+            <div class="name"><?=$notInList;?></div>
+            <span class="pull-right badge">{%=o.result[1].badge%}</span>
+        </div>
+    </li>
+    {% } %}
+    {% for (var i=2, boxes; boxes=o.result[i]; i++) { %}
+    <li class="mediaBox mbcholder span2"
+        data-object-id="{%=boxes.id%}"
+        data-object-name="{%=boxes.doname%}">
+        <div class="mbHeader">
+            <div class="name">{%=boxes.name%}</div>
+            <span class="pull-right badge">{%=boxes.badge%}</span>
+        </div>
+    </li>
+    {% } %}
+</script>

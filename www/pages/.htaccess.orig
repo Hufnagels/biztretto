@@ -1,0 +1,9 @@
+<Files ~ "^.*\.([Hh][Tt][Aa])">
+ order allow,deny
+ deny from all
+</Files>
+
+<Files ~ ".(htm|html|css|js|php)">
+  Order allow,deny
+  Deny from all
+</Files>

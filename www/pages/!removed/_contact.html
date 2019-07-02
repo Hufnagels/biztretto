@@ -1,0 +1,79 @@
+
+
+    <div class="container clearfix">
+
+        <header class="page-header">
+
+            <h1 class="page-title">Lépjen velünk kapcsolatba</h1>
+
+        </header><!-- end .page-header -->
+
+    </div><!-- end .container -->
+
+    <div id="map" style="
+        position: relative;
+        background-color: rgb(229, 227, 223);
+        overflow: hidden;
+        -webkit-transform: translateZ(0);
+        ">
+        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.hu/maps?f=q&amp;source=s_q&amp;hl=<?=$pageLanguage;?>&amp;geocode=&amp;q=1116+Budapest,+D%C3%A1lia+utca+6.&amp;aq=&amp;sll=47.447945,19.019012&amp;sspn=0.01187,0.019569&amp;t=v&amp;g=1116+Budapest,+D%C3%A1lia+utca&amp;ie=UTF8&amp;hq=&amp;hnear=1116+Budapest,+Budapest+XI.+ker%C3%BClete,+D%C3%A1lia+utca+6&amp;ll=47.455878,19.0198&amp;spn=0.011869,0.019569&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="http://maps.google.hu/maps?f=q&amp;source=embed&amp;hl=<?=$pageLanguage;?>&amp;geocode=&amp;q=1116+Budapest,+D%C3%A1lia+utca+6.&amp;aq=&amp;sll=47.447945,19.019012&amp;sspn=0.01187,0.019569&amp;t=v&amp;g=1116+Budapest,+D%C3%A1lia+utca&amp;ie=UTF8&amp;hq=&amp;hnear=1116+Budapest,+Budapest+XI.+ker%C3%BClete,+D%C3%A1lia+utca+6&amp;ll=47.448878,19.0198&amp;spn=0.011869,0.019569&amp;z=14&amp;iwloc=A" style="color:#0000FF;text-align:left"><?=Lang('Change to bigger map');?></a></small>
+        </div><!-- end #map -->
+
+    <div class="container clearfix">
+
+        <div class="one-fourth">
+
+            <h3>Kapcsolat</h3>
+
+            <p>Dália utca 6<br>
+                Budapest 1116<br>
+                Hungary</p>
+
+            <p>Phone: (123) 456-7890<br>
+                Fax: +08 (123) 456-7890<br>
+                Email: contact@skillbi.com<br>
+                Web: skillbi.com</p>
+
+        </div><!-- end .one-fourth -->
+
+        <div class="three-fourth last">
+
+            <h3>Küldjön üzenetet</h3>
+
+            <form action="php/contact-send.php" method="post" class="contact-form">
+
+                <p class="input-block">
+                    <label for="contact-name"><strong>Name</strong> (required)</label>
+                    <input type="text" name="name" value="" id="contact-name" required="">
+                </p>
+
+                <p class="input-block">
+                    <label for="contact-email"><strong>Email</strong> (required)</label>
+                    <input type="email" name="email" value="" id="contact-email" required="">
+                </p>
+
+                <p class="input-block">
+                    <label for="contact-subject"><strong>Subject</strong></label>
+                    <input type="text" name="subject" value="" id="contact-subject">
+                </p>
+
+                <p class="textarea-block">
+                    <label for="contact-message"><strong>Your Message</strong> (required)</label>
+                    <textarea name="message" id="contact-message" cols="88" rows="6" required=""></textarea>
+                </p>
+
+                <div class="hidden">
+                    <label for="contact-spam-check">Do not fill out this field:</label>
+                    <input name="spam-check" type="text" value="" id="contact-spam-check">
+                </div>
+
+                <input type="submit" value="Submit">
+
+                <div class="clear"></div>
+
+                <div id="response" class="hidden"></div></form>
+
+        </div><!-- end .three-fourth.last -->
+
+    </div><!-- end .container -->
+

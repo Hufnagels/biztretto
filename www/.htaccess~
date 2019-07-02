@@ -1,0 +1,96 @@
+#<Location />
+  AuthType Digest
+  AuthName "SKILLBI"
+  AuthDigestAlgorithm MD5
+  AuthDigestDomain / http://skill.madein.hu/ http://trillala.skill.madein.hu/
+  AuthDigestQop auth
+  AuthDigestProvider file
+  AuthUserFile /var/www/skilldev/www/.digestpass
+  require valid-user
+  AuthDigestNonceLifetime 0
+  Allow from 80.99.206.236
+  #Satisfy Any
+#</Location>
+
+RewriteEngine On
+RewriteBase /
+Options -Indexes
+#php_value post_max_size 30M
+#php_value upload_max_filesize 30M
+
+Options +FollowSymLinks
+Options -Indexes
+<filesMatch "\.(html|js|css|php)$">
+FileETag None
+<ifModule mod_headers.c>
+Header unset ETag
+Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+Header set Pragma "no-cache"
+Header set Expires "Wed, 11 Jan 1981 05:00:00 GMT"
+</ifModule>
+</filesMatch>
+
+<ifModule mod_php4.c>
+ php_value zlib.output_compression 16386
+</ifModule>
+
+<Files do.php>  
+#  deny from all
+</Files>
+
+AddType video/ogg .ogg
+AddType audio/ogg .oga
+AddType video/mp4 .mp4
+AddType audio/mp3 .mp3
+
+#language select
+RewriteCond %{HTTP:Accept-Language} ^.*(de|hu|en).*$ [NC]
+RewriteRule ^(.*)$ - [env=prefer-language:%1]
+
+#login
+RewriteRule ^login$ login.php [QSA,L]
+#logout
+RewriteRule ^logout$ logout.php [NC,R=301,L]
+
+#show training
+RewriteRule ^training/(.*)/(.*)/(.*)/$ do_preview.php?trainingId=$1&showId=$2&badge=$3 [QSA,L]
+RewriteRule ^training/(.*)/(.*)/(.*)$ do_preview.php?trainingId=$1&showId=$2&badge=$3 [QSA,L]
+
+RewriteRule ^training/(.*)/$ do_preview.php?trainingId=$1 [QSA,L]
+RewriteRule ^training/(.*)$ do_preview.php?trainingId=$1 [QSA,L]
+
+#preview training
+RewriteRule ^preview/(.*)/(.*)/(.*)/$ do_preview.php?trainingId=$1&showId=$2&badge=$3 [QSA,L]
+RewriteRule ^preview/(.*)/(.*)/(.*)$ do_preview.php?trainingId=$1&showId=$2&badge=$3 [QSA,L]
+RewriteRule ^preview/(.*)/$ do_preview.php?trainingId=$1 [QSA,L]
+RewriteRule ^preview/(.*)$ do_preview.php?trainingId=$1 [QSA,L]
+
+#preview slideshow
+RewriteRule ^slideshow/(.*)/(.*)/$ do_preview.php?showId=$1&badge=$2 [QSA,L]
+RewriteRule ^slideshow/(.*)/(.*)$ do_preview.php?showId=$1&badge=$2 [QSA,L]
+RewriteRule ^slideshow/(.*)/$ do_preview.php?showId=$1 [QSA,L]
+RewriteRule ^slideshow/(.*)$ do_preview.php?showId=$1 [QSA,L]
+
+#download attaches
+RewriteRule ^download/(.*)/(.*)$ download.php?folder=$1&filename=$2 [QSA,L]
+
+#stream video
+RewriteRule ^video/(.*)/$ streamvideo.php?filename=$1 [QSA,L]
+RewriteRule ^video/(.*)$ streamvideo.php?filename=$1 [QSA,L]
+RewriteRule ^video/(.*)/(.*)/$ streamvideo.php?filename=$1&type=$2 [QSA,L]
+RewriteRule ^video/(.*)/(.*)$ streamvideo.php?filename=$1&type=$2 [QSA,L]
+
+#RewriteCond %{QUERY_STRING} !sEcho=(.*)(([^&]*&)*)
+#RewriteRule ^submit/(.*)/ do_preview.php?showId=$1 [QSA,L]
+RewriteRule ^process(/|$) do.php [QSA,R,L]
+RewriteRule ^crawl$ do.php [NC,QSA,L]
+
+#RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L]
+
+ErrorDocument 302 /errordocuments/404.php
+ErrorDocument 403 /errordocuments/403forbidden.php
+ErrorDocument 404 /errordocuments/404.php
+ErrorDocument 500 /errordocuments/404.php

@@ -1,0 +1,28 @@
+.navbar .container {width:1170px;}
+
+.navbar-inner {filter:none;}
+.navbar .CorporateBrand {margin: 10px 0px 10px 30px;width:230px;}
+
+.navbar .searchBar {width:460px;}
+
+.slides-nav.row {width:1170px;margin-left:0px;margin-right:0px;}
+.slides-nav li.span4 {width:388px;margin-right:0px;}
+.slider-wrapper{height:431px;}
+.boxHolderBG {background-attachment:inerhited;}
+
+/*usermanager*/
+
+/*mymedia*/
+.mediaBoxList.span2, .mediaBoxList.span2 > li.span2{margin-left:0px;}
+.thumbnails > li > .thumbnail {height:210px;}
+
+/*slideeditor*/
+.slidesList.span2, .slidesList.span2 > li.slideElement.span2 {margin-left:0px;}
+#slideList {width:190px;}
+
+#editorArea .regular-checkbox,
+.tools .regular-checkbox,
+#editorArea .regular-radio,
+.tools .regular-radio {
+	display: block;
+}

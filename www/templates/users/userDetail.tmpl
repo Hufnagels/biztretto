@@ -1,0 +1,157 @@
+<!-- template:usergroups -->
+<script type="text/x-tmpl" id="tmpl-userDetail1">
+    {% for (var i=0, file; file=o.result[i]; i++) { %}
+    <div class="userDataRow">
+        <form id="user_{%=file.id%}" action="#" methode="post" class="form-horizontal">
+            <input type="hidden" name="id" value="{%=file.id%}"/>
+                    <div class="span4">
+                        <div class="control-group">
+                            <label class="control-label" for="<?= $formdata['id'][4]; ?>"><?=$formdata['label'][4];?></label>
+                            <div class="controls">
+                                <a href="#" id="<?= $formdata['id'][4]; ?>" data-type="email" data-pk="{%=file.id%}"
+                                   data-original-title="<?= $formdata['pholder'][4]; ?>" class="editable editable-click">{%=file.email%}</a>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="<?= $formdata['id'][7]; ?>"><?=$formdata['label'][7];?></label>
+                            <div class="controls">
+                                <a href="#" id="birth" data-type="date" data-viewformat="yyyy.mm.dd"
+                                   data-pk="{%=file.id%}" data-placement="right"
+                                   data-original-title="<?= $formdata['pholder'][7]; ?>">{%=file.birth%}</a>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="<?= $formdata['id'][3]; ?>"><?=$formdata['label'][3];?></label>
+
+                            <div class="controls">
+                                <a href="#" id="gender" data-type="select" data-pk="{%=file.id%}" data-value="{%= (file.gender == 'Male' ? '1' : '2') %}"
+                                   data-original-title="<?= $formdata['pholder'][3]; ?>">{%=file.gender%}</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="span4">
+                        <!--<div class="control-group">
+                            <label class="control-label" for="<?= $formdata['id'][6]; ?>"><?=$formdata['label'][6];?></label>
+
+                            <div class="controls">
+                                <a href="#" id="<?= $formdata['id'][6]; ?>" data-type="text" data-pk="{%=file.id%}"
+                                   data-value="{%=file.position%}"
+                                   data-original-title="<?= $formdata['pholder'][6]; ?>" class="editable editable-click">{%=file.position%}</a>
+
+                            </div>
+                        </div>-->
+                        <div class="control-group checkList">
+                            <label class="control-label" for="<?= $formdata['id'][8]; ?>"><?=$formdata['label'][8];?></label>
+                            <div class="controls">
+                                <a href="#" id="language" data-type="checklist" data-pk="{%=file.id%}"
+                                   data-value="{%=file.languages%}"
+                                   data-original-title="<?= $formdata['pholder'][8]; ?>">{%=file.languages%}</a>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="userlevel">User level</label>
+                            <div class="controls">
+                                <a href="#" id="userlevel" data-type="select" data-pk="{%=file.id%}"
+                                   data-value="{%=file.userlevel%}"
+                                   data-original-title="Select user level">{%=file.userlevelText%}
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+            <div class="clearfix"></div>
+            <div class="span4 small">
+                <div class="control-group">
+                    <label class="control-label" for="inputPassword">Password</label>
+
+                    <div class="controls">
+                        <a href="#" id="pwd" class="myPass" data-type="password" data-pk="{%=file.id%}"
+                           data-original-title="Type Password"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="span4 small">
+                <div class="control-group">
+                    <label class="control-label" for="inputPassword">ReType Password</label>
+
+                    <div class="controls">
+                        <a href="#" id="pwd2" class="myPass" data-type="password" data-pk="{%=file.id%}"
+                           data-original-title="ReType Password"></a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="span4 small">
+                <div class="control-group">
+                    <label class="control-label" for="submit"></label>
+                    <button type="submit" id="submit" class="btn btn-dark">Update password</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    {% } %}
+</script>
+
+<!-- template:usergroups -->
+<script type="text/x-tmpl" id="tmpl-userDetail">
+    {% for (var i=0, file; file=o.result[i]; i++) { %}
+        <div class="span5">
+            <div class="form-horizontal myaccountData" id="detailsForm1">
+                <div class="control-group">
+                    <label class="control-label" for="<?= $formdata['id'][4]; ?>"><?=$formdata['label'][4];?></label>
+                    <div class="controls">
+                        <a href="#" id="<?= $formdata['id'][4]; ?>" data-type="email" data-pk="{%=file.id%}" data-original-title="<?= $formdata['pholder'][4]; ?>" class="editable editable-click">{%=file.email%}</a>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="<?= $formdata['id'][7]; ?>"><?=$formdata['label'][7];?></label>
+                    <div class="controls">
+                        <a href="#" id="birth" data-type="date" data-viewformat="yyyy.mm.dd" data-pk="{%=file.id%}" data-placement="right" data-original-title="<?= $formdata['pholder'][7]; ?>">{%=file.birth%}</a>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="<?= $formdata['id'][3]; ?>"><?=$formdata['label'][3];?></label>
+                    <div class="controls">
+                        <a href="#" id="gender" data-type="select" data-pk="{%=file.id%}" data-value="{%= (file.gender == 'Male' ? '1' : '2') %}" data-original-title="<?= $formdata['pholder'][3]; ?>">{%=file.gender%}</a>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="userlevel">User level</label>
+                    <div class="controls">
+                        <a href="#" id="userlevel" data-type="select" data-pk="{%=file.id%}" data-value="{%=file.userlevel%}" data-original-title="Select user level">{%=file.userlevelText%}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-horizontal myaccountData" id="passwordChange">
+                <div class="control-group">
+                    <label class="control-label" for="inputPassword">Password</label>
+                    <div class="controls">
+                        <a href="#" id="pwd" class="myPass editable editable-click editable-empty" data-type="password" data-pk="{%=file.id%}" data-original-title="Type Password">Change here</a>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputPassword">ReType</label>
+                    <div class="controls">
+                        <a href="#" id="pwd2" class="myPass editable editable-click editable-empty" data-type="password" data-pk="{%=file.id%}" data-original-title="ReType Password">Change here</a>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <span class="help-block"></span>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputPassword"></label>
+                    <div class="controls">
+                        <button type="submit" id="submit" class="btn btn-dark">Update password</button>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    {% } %}
+</script>

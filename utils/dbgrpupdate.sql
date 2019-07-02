@@ -1,0 +1,1 @@
+--UPDATE user_u SET schools="1234567" WHERE u_id=12;

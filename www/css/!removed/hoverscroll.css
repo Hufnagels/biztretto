@@ -1,0 +1,112 @@
+/* Main container */
+div.hoverscroll {
+	position:relative;
+  overflow: hidden;
+}
+
+div.hoverscroll div.fixed-scrollcontainer
+{
+	overflow-y:scroll;
+  overflow-x:hidden;
+  height:100%;
+}
+/* List container */
+div.hoverscroll div.listcontainer {
+	overflow-x:hidden;
+  overflow-y:scroll;
+}
+div.hoverscroll div.fixed-listcontainer {
+    /*overflow: hidden;*/
+    overflow-x:hidden;
+  overflow-y:scroll;
+    float: left;
+}
+
+/* Arrows */
+div.hoverscroll div.arrow {
+	position:absolute;
+	float:none;
+	background-color:#ccc;
+	background-position:center;
+	background-repeat:no-repeat;
+	opacity:0.8;
+	filter:alpha(opacity=80);
+}
+div.hoverscroll div.fixed-arrow {
+    display: block;
+    float: left;
+    background-color: none;/*#ccc;*/
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+div.hoverscroll div.arrow.top,
+div.hoverscroll div.arrow.bottom,
+div.hoverscroll div.fixed-arrow.top,
+div.hoverscroll div.fixed-arrow.bottom {
+	left:0px;
+	width:170px;
+	height:34px;
+  
+}
+div.hoverscroll div.arrow.top,
+div.hoverscroll div.fixed-arrow.top {
+	top:0px;
+  border-bottom:2px solid white;
+  border-radius: 10px 10px 0 0;
+	/*background-image:url('/images/scroll/arrow-up-small.png');
+  box-shadow: 0px 10px 20px -1px #333;
+  -webkit-box-shadow: 0px 10px 20px -1px #fff;
+  -moz-box-shadow: 0px 10px 20px -1px #fff;*/
+  
+}
+div.hoverscroll div.arrow.bottom,
+div.hoverscroll div.fixed-arrow.bottom {
+	bottom:0px;
+  border-top:2px solid white;
+  border-radius: 0 0 10px 10px;
+	/*background-image:url('/images/scroll/arrow-down-small.png');
+  box-shadow: 0px -10px 20px -1px white;
+  -webkit-box-shadow: 0px -10px 20px -1px white;
+  -moz-box-shadow: 0px -10px 20px -1px white;*/
+
+}
+
+
+/* Hover Zones */
+/*
+div.hoverscroll div.hoverZoneLeft,
+div.hoverscroll div.hoverZoneRight,
+div.hoverscroll div.hoverZoneTop,
+div.hoverscroll div.hoverZoneBottom {
+	position:absolute;
+}
+div.hoverscroll div.hoverZoneLeft {
+	cursor: url('/images/scroll/mouse-arrow-left.cur'), w-resize;
+	top:0px;
+	left:0px;
+	width:40%;
+	height:100%;
+}
+div.hoverscroll div.hoverZoneRight {
+	cursor: url('/images/scroll/mouse-arrow-right.cur'), w-resize;
+	top:0px;
+	right:0px;
+	width:40%;
+	height:100%;
+}
+div.hoverscroll div.hoverZoneTop {
+	cursor: url('/images/scroll/mouse-arrow-up.cur'), n-resize;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:40%;
+}
+div.hoverscroll div.hoverZoneBottom {
+	cursor: url('/images/scroll/mouse-arrow-down.cur'), n-resize;
+	bottom:0px;
+	left:0px;
+	width:100%;
+	height:40%;
+}
+*/

@@ -1,0 +1,210 @@
+.colorTr{width:0;height:0;border-style:solid;border-width:0 0 10px 10px;position:absolute;right:0;bottom:0}#mySlideshowsContainer.affix,#myGroupsContainer.affix{top:10px}#mySlideshowsContainer.affix #myGroupsContainer.affix{position:fixed}@media(min-width:1200px){#mySlideshowsContainer.affix,#myGroupsContainer.affix{width:170px}.colorTr{border-style:solid;border-width:0 0 15px 15px}}@media(max-width:1199px) and (min-width:980px){#mySlideshowsContainer.affix{width:140px}}@media(max-width:979px) and (min-width:768px){#mySlideshowsContainer.affix{width:104px}}@media(max-width:767px){#mySlideshowsContainer.affix{width:100%;position:relative}.createNew .dropdown-menu button{margin-top:-10px}}#mySlideshowsContainer.affix-bottom{position:absolute;top:auto}#mySlideshowsContainer ul{list-style-type:none}#trainingList .leftSide img{margin-top:-30px}#trainingList .slideElement{position:relative}#trainingList .slideElement .rightSide .name,#trainingList .slideElement .rightSide .authors{line-height:100%;float:left;margin-top:5px}#trainingList .label{position:absolute;right:0;bottom:-1px}#trainingDataBar.well.well-small{margin-bottom:10px;overflow:hidden}#trainingDataBar .span3,#trainingDataBar .span5,#trainingDataBar .span8{padding:0;margin:0;position:relative}#trainingDataBar .span8{padding-left:5px}#trainingDataBar img{padding:0;position:relative}#trainingDataBar .imageHolder{padding:0;margin:10px 10px 10px 5px}#trainingDataBar img,#trainingDataBar .imageHolder{width:130px;height:182px}#trainingDataBar .group1{margin-top:40px;margin-bottom:0}#trainingDataBar .group2{margin-top:-5px}@media(min-width:1200px){#trainingDataBar img,#trainingDataBar .imageHolder{width:160px;height:224px}#trainingDataBar .group1{margin-top:50px;margin-bottom:0}#trainingDataBar .group2{margin-top:5px}}@media(max-width:1199px) and (min-width:980px){#trainingDataBar img,#trainingDataBar .imageHolder{width:130px;height:182px}#trainingDataBar .group1{margin-top:40px;margin-bottom:0}#trainingDataBar .group2{margin-top:-5px}}#trainingHeader .span8{padding:0;margin:0;position:relative}#description{width:95%;height:200px}#uploadCover,#clearCover{width:40px;height:40px;margin-top:30px;position:absolute;right:20px;line-height:40px}#uploadCover{top:20px}#clearCover{top:80px}@media(min-width:1200px){#uploadCover{top:30px}#clearCover{top:100px}}.control-group .dropdown .caret{margin-top:10px;margin-left:2px}#myTrainingsList{min-height:253px;margin-left:0}#myTrainingsList .userElement{margin-bottom:0;position:relative}.myTrainingsContainer{margin-top:10px}#myTrainingsListHeader{margin-left:0;margin-bottom:3px;font-weight:800;overflow:hidden}#myTrainingsListHeader .userElement.span8{margin-left:0;height:30px}#myTrainingsList .userElement.span8,#draggingContainer2 .userElement.span8{padding:0;margin-left:0}ul#myTrainingsList ul{margin-left:0}#myTrainingsList .userElement .action .btn-dark{padding:0 4px;height:25px;margin-top:2px;line-height:25px}#myTrainingsList .userElement .action .icon-ok{margin-top:0}.action.span1{text-align:center}.userElement .trainingdata .span2,.userElement .trainingdata .span1{margin-left:5px;line-height:30px}.userElement .trainingdata .action{float:right;margin-right:10px}.userElement .trainingdata .span3,.userElement .trainingdata .span4{margin-left:0;line-height:30px}.userElement .trainingdata .span3{width:258px}@media(min-width:1200px){.userElement .trainingdata .span3{width:258px}}@media(max-width:1199px) and (min-width:980px){.userElement .trainingdata .span3{width:258px}}@media(max-width:979px) and (min-width:768px){.userElement .trainingdata .span3{width:258px}}@media(max-width:767px){.userElement .trainingdata .span3{width:258px}}.userElement .trainingdata .span3 .name{margin-left:0;cursor:move}#myTrainingsListHeader .users{text-align:center;margin-left:0}#myTrainingsList .colorBar{height:40px;width:2px;border-left-width:2px;border-left-style:solid;float:left;margin-right:3px}#myTrainingsList .ui-state-highlight.span8{height:40px;margin-left:0}.placeholder{float:left;margin-left:0}.sortable li>div{padding:6px 0}.trainingdataRow{margin-left:0;width:400px}@media(min-width:1200px){.trainingdataRow{width:450px}}#previewTraining{margin-top:-1px}#addNewInstance{margin-top:3px}.trainingdataRow form.form-horizontal .control-group{margin-bottom:2px;float:left}#myTrainingsList .trainingdataRow form.form-horizontal .control-label{float:left;width:60px;padding-top:5px;text-align:right}.trainingdataRow form.form-horizontal .controls{margin-left:5px;display:inline-block;float:left}.trainingdataRow .input-xsmall{width:45px}.trainingdataRow .input-xxsmall{width:30px}.trainingdataRow .form-horizontal input{padding:0 0 0 8px;margin-top:0;margin-left:0}.trainingdataRow .form-horizontal .controls.input-append input[type="text"]{border:0}.trainingdataRow .form-horizontal .controls.input-append .add-on{padding:0;margin-top:-1px;margin-left:-2px}.trainingdataRow .form-horizontal .controls.input-append .add-on i{height:15px}.trainingdataRow form label,.trainingdataRow form input,.trainingdataRow form select,.trainingdataRow form textarea{font-weight:normal;line-height:14px}.trainingdataRow select{padding:0;margin-left:0}.trainingdataRow select,input[type="file"]{height:23px;line-height:30px}.mbcholder.ui-draggable .name{cursor:move}.bottomBar button{margin-top:-7px}.sideBar2.span2{margin-left:0;margin-bottom:10px}#trainingStatus span.label{float:left}#trainingStatus span.name,#trainingStatusSelector span.name{margin-left:5px}#GroupList .middlegreyB.span2.divider{height:3px;margin:3px 0}.colHeader.divider{margin-left:0;margin-top:5px}#myInstances{min-height:253px;margin-left:0}#myInstances .userElement{margin-bottom:5px;position:relative;margin-left:0;padding:7px 0}#myInstances .trainingdataRow .form-horizontal .controls.input-append .add-on i{margin-top:4px}#myInstances .trainingdataRow{padding:5px 0 0 0}#myInstances .btn-dark.removeInstance{padding:2px 5px;height:25px;margin-top:2px;line-height:25px}#myInstances .trainingdataRow form.form-horizontal .control-label{float:left;width:80px;padding-top:5px;text-align:right}.greenBg .mbHeader{-webkit-animation:color_change 1s;-webkit-animation-name:color_change;-webkit-animation-iteration-count:infinite;-webkit-animation-direction:alternate;-moz-animation:color_change 1s;-moz-animation-name:color_change;-moz-animation-iteration-count:infinite;-moz-animation-direction:alternate;-ms-animation:color_change 1s;-ms-animation-name:color_change;-ms-animation-iteration-count:infinite;-ms-animation-direction:alternate;-o-animation:color_change 1s;-o-animation-name:color_change;-o-animation-iteration-count:infinite;-o-animation-direction:alternate;animation:color_change 1s;animation-name:color_change;animation-iteration-count:infinite;animation-direction:alternate}
+
+.publicationElement .pointer-right {
+    right : -33px;
+    top   : 0px;
+}
+
+
+.publicationElement .dataHolder {
+    width         : 168px;
+    height        : 54px;
+    position      : relative;
+    margin-bottom : 2px;
+    position      : relative;
+    float         : left;
+	border: 1px solid #ddd;
+}
+.publicationElement .dataHolder.selected {
+border: 1px solid #888;
+}
+
+.publicationElement .movingBox, .publicationElement .deleteBox {
+    display : none;
+}
+
+.publicationElement .leftSide {
+    float          : left;
+    height         : 48px;
+    width          : 85px;
+
+    margin         : 3px;
+    position       : relative;
+    line-height    : 1px;
+    pointer-events : none;
+	overflow: hidden;
+}
+
+.publicationElement .descriptionTag {
+    display    : none;
+    visibility : hidden;
+}
+
+.publicationElement .rightSide {
+    float    : left;
+    height: 54px;
+    width    : 77px;
+    position : relative;
+	cursor: pointer;
+}
+
+.publicationElement .rightSide .badge {
+    margin-top : 3px;
+    float      : left;
+    position   : absolute;
+    left       : 0;
+    bottom     : 0;
+}
+
+.publicationElement .rightSide .name {
+    line-height : 100%;
+    float       : left;
+    font-style  : italic;
+    width       : 100%;
+    height      : 100%;
+    display     : block;
+    word-wrap   : break-word;
+	font-size: 11px;
+}
+
+
+
+.publicationElement object, .publicationElement .nonResizableClass audio {
+    display : none;
+}
+
+.publicationElement .leftSide .textDiv ul {
+    margin : 0;
+}
+
+.publicationElement > ul {
+    margin-left : 5px;
+    float       : left;
+}
+
+.publicationElement, .publicationElement > ul > li {
+    min-height : 43px;
+    float      : left;
+	margin-left: 0;
+}
+
+.publicationElement .leftSide .textDiv h1, .publicationElement .leftSide .textDiv h2, .publicationElement .leftSide .textDiv h3, .publicationElement .leftSide .textDiv h4, .publicationElement .leftSide .textDiv h5, .publicationElement .leftSide .textDiv h6 {
+    font-size   : 2px !important;
+    line-height : 3px !important;
+    margin      : 0;
+}
+
+.publicationElement .leftSide .textClass p {
+    margin : 0;
+}
+
+.publicationElement .leftSide .textClass span {
+}
+
+.publicationElement .leftSide .textClass div {
+}
+
+.publicationElement .leftSide font {
+}
+
+.publicationElement .leftSide .textClass ul li {
+    margin : 0;
+}
+
+.publicationElement .leftSide .textClass input, .publicationElement .leftSide .textClass select {
+    display : none;
+}
+
+.publicationElement .leftSide .textClass label {
+    min-height   : 1px;
+    padding-left : 0;
+}
+
+.publicationElement .leftSide .textClass label:nth-child(odd) {
+    display : none;
+}
+
+.publicationElement .leftSide .textClass textarea {
+    display : none;
+}
+
+.publicationElement .leftSide .poster {
+    display    : block;
+    max-height : 100%;
+}
+
+.publicationElement .leftSide iframe {
+    display : none;
+}
+
+.publicationElement .leftSide video {
+    display : none;
+}
+
+.publicationElement .leftSide embed {
+    display : none;
+}
+
+.publicationElement .leftSide .btn-dark {
+    display : none;
+}
+
+.publicationElement .rightSide .trafficDetail {
+    float    : right;
+    position : absolute;
+    right    : 5px;
+    bottom   : 0;
+    z-index  : 200;
+}
+
+.publicationElement .rightSide .trafficDetail i {
+    margin-right : 7px;
+    cursor       : pointer;
+}
+
+.publicationElement .trafficData {
+    display       : none;
+    float         : left;
+    padding       : 3px;
+    text-align    : center;
+    position      : relative; /*width: 134px;*/
+}
+
+.publicationElement .trafficData.opened {
+    display     : block;
+    padding     : 20px 0px 0px 0px;
+    margin-left : 0;
+}
+
+.publicationElement .trafficData.opened .pointer-bottom1 {
+    position         : absolute;
+    float            : left;
+    z-index          : 100;
+    right            : 3px;
+    top              : -2px;
+}
+
+.publicationElement .trafficData.opened .pointer-bottom2 {
+    border           : solid 20px transparent;
+    border-top-color : white;
+    position         : absolute;
+    float            : left;
+    z-index          : 99;
+    top              : -2px;
+    right            : 0;
+}
+
+.publicationElement .trafficData.opened .pointer-bottom1, .publicationElement .trafficData.opened .pointer-bottom2 {
+    display : block;
+}
+
+.publicationElement .trafficData .badge {
+    padding : 5px 7px;
+}
+
+
+
+.publicationElement .dataHolder.selected [class*="pointer"],
+.publicationElement .trafficData [class*="pointer"] {
+    display : block;
+}

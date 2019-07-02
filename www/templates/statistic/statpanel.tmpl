@@ -1,0 +1,195 @@
+<!-- template statpanel-->
+<script type="text/x-tmpl" id="tmpl-statpanel">
+
+    {% for (var i=0, stat; stat=o.result[i]; i++) { %}
+        <div class="ratingDiv span2"></div>
+        <div class="detailDiv span8">
+            <div class="headingData">
+                <h1 class="functionHeader darkgreyT2">Title: <span class="strdata">{%=stat.title%}</span></h1>
+                <div class="clearfix"></div>
+                <ul class="summaryzedData pull-left">
+                    <li class="totalUsers1 pull-left">
+                        <h3 class="functionHeader middlegreyT2">Avarage exam result</h3>
+                        <h1 class="functionHeader orangeT"><span class="intdata">{%=stat.avg_exan_result%}</span></h1>
+                    </li>
+                    <!--<li class="inprogressTraining pull-left">
+                        <h3 class="functionHeader middlegreyT2">total hours</h3>
+                        <h1 class="functionHeader orangeT">{%=stat.avg_exan_result%}</h1>
+                    </li>-->
+                    <li class="finishedTraining pull-left">
+                        <h3 class="functionHeader middlegreyT2"></h3>
+                        <ul>
+                            <li><h3 class="functionHeader middlegreyT2"><span>Attachement: </span><span class="intdata">{%=stat.attachments%}</span></h3></li>
+                            <li><h3 class="functionHeader middlegreyT2"><span>Last modified: </span><span class="strdata">{%=stat.lastmod%}</span></h3></li>
+                            <li><h3 class="functionHeader middlegreyT2"><span>Created: </span><span class="strdata">{%=stat.created%}</span></h3></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+            <div class="detailedData">
+                <div class="resultsData pull-left">
+
+                    <h3 class="functionHeader middlegreyT2">result</h3>
+                    <div class="clearfix"></div>
+                    <ul class="pointSelector">
+                        <li class="separator"><div class="text intdata">{%=stat.trainingrates[1].result.length%}</div><br><span href="#" class="btn-dark pole" data-pole="1">1</span></li>
+                        <li class="separator"><div class="text intdata">{%=stat.trainingrates[2].result.length%}</div><br><a href="#" class="btn-dark pole" data-pole="2">2</a></li>
+                        <li class="separator"><div class="text intdata">{%=stat.trainingrates[3].result.length%}</div><br><a href="#" class="btn-dark pole" data-pole="3">3</a></li>
+                        <li class="separator"><div class="text intdata">{%=stat.trainingrates[4].result.length%}</div><br><a href="#" class="btn-dark pole" data-pole="4">4</a></li>
+                        <li class="separator"><div class="text intdata">{%=stat.trainingrates[5].result.length%}</div><br><a href="#" class="btn-dark pole" data-pole="5">5</a></li>
+                    </ul>
+                </div>
+                <div class="resultsData2 pull-left span6">
+                    <ul class="summaryzedData pull-left">
+                        <li class="totalUsers pull-left">
+                            <h3 class="functionHeader middlegreyT2">users</h3>
+                            <h1 class="functionHeader darkgreyT2"><span class="intdata">{%=stat.total_users%}</span></h1>
+                        </li>
+                        <li class="inprogressTraining pull-left">
+                            <h3 class="functionHeader middlegreyT2">in progress</h3>
+                            <h1 class="functionHeader darkgreyT2"><span class="intdata">{%=stat.in_progress%}</span></h1>
+                        </li>
+                        <li class="finishedTraining pull-left">
+                            <h3 class="functionHeader middlegreyT2">finished</h3>
+                            <h1 class="functionHeader darkgreyT2"><span class="intdata">{%=stat.finished%}</span></h1>
+                        </li>
+
+                        <li class="successfullExam pull-left">
+                            <h3 class="functionHeader middlegreyT2">success</h3>
+                            <h1 class="functionHeader orangeT"><span class="intdata">{%=stat.successful_exam%}</span></h1>
+                        </li>
+                        <li class="failedExam pull-left">
+                            <h3 class="functionHeader middlegreyT2">failed</h3>
+                            <h1 class="functionHeader darkgreyT2"><span class="intdata">{%=stat.failed_exam%}</span></h1>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+    {% } %}
+
+</script>
+
+<script type="text/x-tmpl" id="tmpl-statpanel2">
+
+    {% for (var i=0, stat; stat=o.result[i]; i++) { %}
+
+        <div class="detailDiv2 span5 well well-small">
+            <div class="headingData">
+                <h1 class="functionHeader darkgreyT2">Title: <span class="strdata">{%=stat.title%}</span></h1>
+            </div>
+            <div class="clearfix"></div>
+            <div class="detailedData">
+                <div class="resultsData pull-left">
+
+                    <h3 class="functionHeader middlegreyT2">result</h3>
+                    <div class="clearfix"></div>
+                    <ul class="pointSelector">
+                        <li class="separator"><h1 class="functionHeader darkgreyT2"><span class="intdata">{%=clearNULL(stat.trainingrates)%}</span></h1></li>
+                    </ul>
+                </div>
+                <div class="resultsData2 pull-left">
+                    <ul class="summaryzedData pull-left">
+
+                        <li class="inprogressTraining pull-left">
+                            <h3 class="functionHeader middlegreyT2">in progress</h3>
+                            <h1 class="functionHeader darkgreyT2"><span class="intdata">{%=stat.in_progress%}</span></h1>
+                        </li>
+                        <li class="finishedTraining pull-left">
+                            <h3 class="functionHeader middlegreyT2">finished</h3>
+                            <h1 class="functionHeader darkgreyT2"><span class="intdata">{%=stat.finished%}</span></h1>
+                        </li>
+
+                        <li class="successfullExam pull-left">
+                            <h3 class="functionHeader middlegreyT2">success</h3>
+                            <h1 class="functionHeader orangeT"><span class="intdata">{%=stat.successful_exam%}</span></h1>
+                        </li>
+                        <li class="failedExam pull-left">
+                            <h3 class="functionHeader middlegreyT2">failed</h3>
+                            <h1 class="functionHeader darkgreyT2"><span class="intdata">{%=stat.failed_exam%}</span></h1>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+        {% } %}
+
+</script>
+
+<script type="text/x-tmpl" id="tmpl-statpanel_empty">
+
+                <div class="ratingDiv span2"></div>
+                <div class="detailDiv span8">
+                    <div class="headingData">
+                        <h1 class="functionHeader darkgreyT2">Title: <span class="strdata"></span></h1>
+                        <div class="clearfix"></div>
+                        <ul class="summaryzedData pull-left">
+                            <li class="totalUsers1 pull-left">
+                                <h3 class="functionHeader middlegreyT2">Avarage exam result</h3>
+                                <h1 class="functionHeader orangeT">0</h1>
+                            </li>
+                            <!--<li class="inprogressTraining pull-left">
+                                <h3 class="functionHeader middlegreyT2">total hours</h3>
+                                <h1 class="functionHeader orangeT">0</h1>
+                            </li>-->
+                            <li class="finishedTraining pull-left">
+                                <h3 class="functionHeader middlegreyT2"></h3>
+                                <ul>
+                                    <li><h3 class="functionHeader middlegreyT2"><span>Attachement: </span></h3></li>
+                                    <li><h3 class="functionHeader middlegreyT2"><span>Last modified: </span></h3></li>
+                                    <li><h3 class="functionHeader middlegreyT2"><span>Created: </span></h3></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="detailedData">
+                        <div class="resultsData pull-left">
+
+                            <h3 class="functionHeader middlegreyT2">result</h3>
+                            <div class="clearfix"></div>
+                                <ul class="pointSelector">
+                                    <li class="separator"><div class="text">0</div><br><a href="#" class="btn-dark pole" data-pole="1">1</a></li>
+                                    <li class="separator"><div class="text">0</div><br><a href="#" class="btn-dark pole" data-pole="2">2</a></li>
+                                    <li class="separator"><div class="text">0</div><br><a href="#" class="btn-dark pole" data-pole="3">3</a></li>
+                                    <li class="separator"><div class="text">0</div><br><a href="#" class="btn-dark pole" data-pole="4">4</a></li>
+                                    <li class="separator"><div class="text">0</div><br><a href="#" class="btn-dark pole" data-pole="5">5</a></li>
+                                </ul>
+
+                        </div>
+                        <div class="resultsData2 pull-left span6">
+                            <ul class="summaryzedData pull-left">
+                                <li class="totalUsers pull-left">
+                                    <h3 class="functionHeader middlegreyT2">users</h3>
+                                    <h1 class="functionHeader darkgreyT2">0</h1>
+                                </li>
+                                <li class="inprogressTraining pull-left">
+                                    <h3 class="functionHeader middlegreyT2">in progress</h3>
+                                    <h1 class="functionHeader darkgreyT2">0</h1>
+                                </li>
+                                <li class="finishedTraining pull-left">
+                                    <h3 class="functionHeader middlegreyT2">finished</h3>
+                                    <h1 class="functionHeader darkgreyT2">0</h1>
+                                </li>
+
+                                <li class="successfullExam pull-left">
+                                    <h3 class="functionHeader middlegreyT2">success</h3>
+                                    <h1 class="functionHeader orangeT">0</h1>
+                                </li>
+                                <li class="failedExam pull-left">
+                                    <h3 class="functionHeader middlegreyT2">failed</h3>
+                                    <h1 class="functionHeader darkgreyT2">0</h1>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+
+</script>

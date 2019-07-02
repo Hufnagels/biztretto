@@ -1,0 +1,58 @@
+<!-- template: load trainng into training organizer editTraining -->
+<script type="text/x-tmpl" id="tmpl-loadtraining">
+    {% for (var i=0, slide; slide=o.result[i]; i++) { %}
+    <li class="userElement span8 lightgreyB" data-id="{%=slide.slideshow_id%}">
+        <span class="colorBar" style="border-left-width: {%=2*Number(slide.depth)%}px;"></span>
+        <div class="trainingdata">
+            <div class="span3">
+                <div class="badge level">{%=slide.depth%}</div>
+                <span class="name">{%=slide.name%}</span>
+            </div>
+            <div class="parameters trainingdataRow span5">
+
+                    <form id="slideshow_{%=slide.slideshow_id%}" action="" methode="post" class="form-horizontal">
+                        <div class="control-group">
+                            <label class="control-label" for="<?= $formdata['id'][6]; ?>"><?=$formdata['label'][6];?></label>
+                            <div class="controls">
+                                <input type="checkbox" name="<?= $formdata['id'][6]; ?>" class="typeChanger" placeholder="<?= $formdata['pholder'][6]; ?>" value="1" {% if (slide.type == '1') { %} checked="checked"{% } %}>
+                            </div>
+                        </div>
+                        <div class="optionRow {% if (slide.type == '0') { %} hidden{% } %}">
+                        <div class="control-group">
+                            <label class="control-label" for="<?= $formdata['id'][7]; ?>"><?=$formdata['label'][7];?></label>
+                            <div class="controls">
+                                <select name="<?= $formdata['id'][7]; ?>" class="input-small">
+                                    <option value="0" {% if (slide.testtype == '0') { %} selected="selected"{% } %}>2 pole</option>
+                                    <option value="1" {% if(slide.testtype == '1'){ %}selected="selected"{% } %}>5 pole</option>
+                                    <option value="2" {% if(slide.testtype == '2'){ %}selected="selected"{% } %}>Eval test</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="<?= $formdata['id'][9]; ?>"><?=$formdata['label'][9];?></label>
+                            <div class="controls">
+                                <input type="checkbox" name="<?= $formdata['id'][9]; ?>" placeholder="<?= $formdata['pholder'][9]; ?>" value="1" {% if(slide.repetable == '1'){ %}checked="checked"{% } %}/>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="<?= $formdata['id'][11]; ?>"><?=$formdata['label'][11];?></label>
+                            <div class="controls">
+                                <input type="text" name="<?= $formdata['id'][11]; ?>" placeholder="<?= $formdata['pholder'][11]; ?>" value="{%=slide.credit%}" class="input-xsmall"/>
+                            </div>
+                        </div>
+                        </div>
+                    </form>
+
+            </div>
+            <div class="action pull-left">
+                <span class="btn-dark removeSlideshow"><span class="icon-white icon-minus"></span></span>
+            </div>
+        </div>
+
+        {% if (slide.children && slide.children.result.length > 0) { %}
+        <ul>{% include('tmpl-loadtraining', slide.children); %}</ul>
+        {% } %}
+
+    </li>
+    {% } %}
+</script>

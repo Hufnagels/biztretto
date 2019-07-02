@@ -1,0 +1,444 @@
+/*
+  960 Grid System ~ Core CSS.
+  Learn more ~ http://960.gs/
+
+  Licensed under GPL and MIT.
+*/
+
+/*
+  Forces backgrounds to span full width,
+  even if there is horizontal scrolling.
+  Increase this if your layout is wider.
+
+  Note: IE6 works fine without this fix.
+*/
+
+body {
+  min-width: 1200px;
+}
+.clearfix {
+  *zoom: 1;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+.clearfix:after {
+  clear: both;
+}
+/* `Containers
+----------------------------------------------------------------------------------------------------*/
+.row {
+    margin-left: -30px;
+    *zoom: 1;
+  }
+  .row:before,
+  .row:after {
+    display: table;
+    line-height: 0;
+    content: "";
+  }
+  .row:after {
+    clear: both;
+  }
+  [class*="span"] {
+    float: left;
+    min-height: 1px;
+    margin-left: 30px;
+  }
+  .container,
+  .navbar-static-top .container,
+  .navbar-fixed-top .container,
+  .navbar-fixed-bottom .container {
+    width: 1170px;
+  }
+
+/* `Grid >> Global
+----------------------------------------------------------------------------------------------------*/
+
+.span1,
+.span2,
+.span3,
+.span4,
+.span5,
+.span6,
+.span7,
+.span8,
+.span9,
+.span10,
+.span11,
+.span12 {
+  display: inline;
+  float: left;
+  /*margin-left: 5px;
+  margin-right: 5px;*/
+}
+
+.offset1, .pull_1,
+.offset2, .pull_2,
+.offset3, .pull_3,
+.offset4, .pull_4,
+.offset5, .pull_5,
+.offset6, .pull_6,
+.offset7, .pull_7,
+.offset8, .pull_8,
+.offset9, .pull_9,
+.offset10, .pull_10,
+.offset11, .pull_11 {
+  position: relative;
+}
+
+/* `Grid >> Children (Alpha ~ First, Omega ~ Last)
+----------------------------------------------------------------------------------------------------*/
+
+.alpha {
+  margin-left: 0;
+}
+
+.omega {
+  margin-right: 0;
+}
+
+/* `Grid >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.span12 {
+    width: 1170px;
+  }
+  .span11 {
+    width: 1070px;
+  }
+  .span10 {
+    width: 970px;
+  }
+  .span9 {
+    width: 870px;
+  }
+  .span8 {
+    width: 770px;
+  }
+  .span7 {
+    width: 670px;
+  }
+  .span6 {
+    width: 570px;
+  }
+  .span5 {
+    width: 470px;
+  }
+  .span4 {
+    width: 370px;
+  }
+  .span3 {
+    width: 270px;
+  }
+  .span2 {
+    width: 170px;
+  }
+  .span1 {
+    width: 70px;
+  }
+
+/* `Prefix Extra Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.offset12 {
+    margin-left: 1230px;
+  }
+  .offset11 {
+    margin-left: 1130px;
+  }
+  .offset10 {
+    margin-left: 1030px;
+  }
+  .offset9 {
+    margin-left: 930px;
+  }
+  .offset8 {
+    margin-left: 830px;
+  }
+  .offset7 {
+    margin-left: 730px;
+  }
+  .offset6 {
+    margin-left: 630px;
+  }
+  .offset5 {
+    margin-left: 530px;
+  }
+  .offset4 {
+    margin-left: 430px;
+  }
+  .offset3 {
+    margin-left: 330px;
+  }
+  .offset2 {
+    margin-left: 230px;
+  }
+  .offset1 {
+    margin-left: 130px;
+  }
+
+  input,
+  textarea,
+  .uneditable-input {
+    margin-left: 0;
+  }
+  .controls-row [class*="span"] + [class*="span"] {
+    margin-left: 30px;
+  }
+  input.span12,
+  textarea.span12,
+  .uneditable-input.span12 {
+    width: 1156px;
+  }
+  input.span11,
+  textarea.span11,
+  .uneditable-input.span11 {
+    width: 1056px;
+  }
+  input.span10,
+  textarea.span10,
+  .uneditable-input.span10 {
+    width: 956px;
+  }
+  input.span9,
+  textarea.span9,
+  .uneditable-input.span9 {
+    width: 856px;
+  }
+  input.span8,
+  textarea.span8,
+  .uneditable-input.span8 {
+    width: 756px;
+  }
+  input.span7,
+  textarea.span7,
+  .uneditable-input.span7 {
+    width: 656px;
+  }
+  input.span6,
+  textarea.span6,
+  .uneditable-input.span6 {
+    width: 556px;
+  }
+  input.span5,
+  textarea.span5,
+  .uneditable-input.span5 {
+    width: 456px;
+  }
+  input.span4,
+  textarea.span4,
+  .uneditable-input.span4 {
+    width: 356px;
+  }
+  input.span3,
+  textarea.span3,
+  .uneditable-input.span3 {
+    width: 256px;
+  }
+  input.span2,
+  textarea.span2,
+  .uneditable-input.span2 {
+    width: 156px;
+  }
+  input.span1,
+  textarea.span1,
+  .uneditable-input.span1 {
+    width: 56px;
+  }
+  .thumbnails {
+    margin-left: -30px;
+  }
+  .thumbnails > li {
+    margin-left: 30px;
+  }
+/* `Suffix Extra Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.row .suffix_1 {
+  padding-right: 100px;
+}
+
+.row .suffix_2 {
+  padding-right: 200px;
+}
+
+.row .suffix_3 {
+  padding-right: 300px;
+}
+
+.row .suffix_4 {
+  padding-right: 400px;
+}
+
+.row .suffix_5 {
+  padding-right: 500px;
+}
+
+.row .suffix_6 {
+  padding-right: 600px;
+}
+
+.row .suffix_7 {
+  padding-right: 700px;
+}
+
+.row .suffix_8 {
+  padding-right: 800px;
+}
+
+.row .suffix_9 {
+  padding-right: 900px;
+}
+
+.row .suffix_10 {
+  padding-right: 1000px;
+}
+
+.row .suffix_11 {
+  padding-right: 1100px;
+}
+
+/* `Push Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.row .offset1 {
+  left: 100px;
+}
+
+.row .offset2 {
+  left: 200px;
+}
+
+.row .offset3 {
+  left: 300px;
+}
+
+.row .offset4 {
+  left: 400px;
+}
+
+.row .offset5 {
+  left: 500px;
+}
+
+.row .offset6 {
+  left: 600px;
+}
+
+.row .offset7 {
+  left: 700px;
+}
+
+.row .offset8 {
+  left: 800px;
+}
+
+.row .offset9 {
+  left: 900px;
+}
+
+.row .offset10 {
+  left: 1000px;
+}
+
+.row .offset11 {
+  left: 1100px;
+}
+
+/* `Pull Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.row .pull_1 {
+  left: -100px;
+}
+
+.row .pull_2 {
+  left: -200px;
+}
+
+.row .pull_3 {
+  left: -300px;
+}
+
+.row .pull_4 {
+  left: -400px;
+}
+
+.row .pull_5 {
+  left: -500px;
+}
+
+.row .pull_6 {
+  left: -600px;
+}
+
+.row .pull_7 {
+  left: -700px;
+}
+
+.row .pull_8 {
+  left: -800px;
+}
+
+.row .pull_9 {
+  left: -900px;
+}
+
+.row .pull_10 {
+  left: -1000px;
+}
+
+.row .pull_11 {
+  left: -1100px;
+}
+
+/* `Clear Floated Elements
+----------------------------------------------------------------------------------------------------*/
+
+/* http://sonspring.com/journal/clearing-floats */
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+/* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified */
+
+.clearfix:before,
+.clearfix:after,
+.row:before,
+.row:after {
+  content: '.';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  font-size: 0;
+  line-height: 0;
+  width: 0;
+  height: 0;
+}
+
+.clearfix:after,
+.row:after {
+  clear: both;
+}
+
+/*
+  The following zoom:1 rule is specifically for IE6 + IE7.
+  Move to separate stylesheet if invalid CSS is a problem.
+*/
+
+.clearfix,
+.row {
+  zoom: 1;
+}

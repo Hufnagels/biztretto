@@ -1,0 +1,357 @@
+/*
+  960 Grid System ~ Core CSS.
+  Learn more ~ http://960.gs/
+
+  Licensed under GPL and MIT.
+*/
+
+/*
+  Forces backgrounds to span full width,
+  even if there is horizontal scrolling.
+  Increase this if your layout is wider.
+
+  Note: IE6 works fine without this fix.
+*/
+
+body {
+  min-width: 960px;
+}
+
+/* `containers
+----------------------------------------------------------------------------------------------------*/
+.container {width:960px;}
+.row {
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
+}
+
+/* `Grid >> Global
+----------------------------------------------------------------------------------------------------*/
+
+.span1,
+.span2,
+.span3,
+.span4,
+.span5,
+.span6,
+.span7,
+.span8,
+.span9,
+.span10,
+.span11,
+.span12 {
+  display: inline;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.push_1, .pull_1,
+.push_2, .pull_2,
+.push_3, .pull_3,
+.push_4, .pull_4,
+.push_5, .pull_5,
+.push_6, .pull_6,
+.push_7, .pull_7,
+.push_8, .pull_8,
+.push_9, .pull_9,
+.push_10, .pull_10,
+.push_11, .pull_11 {
+  position: relative;
+}
+
+/* `Grid >> Children (Alpha ~ First, Omega ~ Last)
+----------------------------------------------------------------------------------------------------*/
+
+.alpha {
+  margin-left: 0;
+}
+
+.omega {
+  margin-right: 0;
+}
+
+/* `Grid >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.row .span1 {
+  width: 60px;
+}
+
+.row .span2 {
+  width: 140px;
+}
+
+.row .span3 {
+  width: 220px;
+}
+
+.row .span4 {
+  width: 300px;
+}
+
+.row .span5 {
+  width: 380px;
+}
+
+.row .span6 {
+  width: 460px;
+}
+
+.row .span7 {
+  width: 540px;
+}
+
+.row .span8 {
+  width: 620px;
+}
+
+.row .span9 {
+  width: 700px;
+}
+
+.row .span10 {
+  width: 780px;
+}
+
+.row .span11 {
+  width: 860px;
+}
+
+.row .span12 {
+  width: 940px;
+}
+
+/* `Prefix Extra Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.row .prefix_1 {
+  padding-left: 80px;
+}
+
+.row .prefix_2 {
+  padding-left: 160px;
+}
+
+.row .prefix_3 {
+  padding-left: 240px;
+}
+
+.row .prefix_4 {
+  padding-left: 320px;
+}
+
+.row .prefix_5 {
+  padding-left: 400px;
+}
+
+.row .prefix_6 {
+  padding-left: 480px;
+}
+
+.row .prefix_7 {
+  padding-left: 560px;
+}
+
+.row .prefix_8 {
+  padding-left: 640px;
+}
+
+.row .prefix_9 {
+  padding-left: 720px;
+}
+
+.row .prefix_10 {
+  padding-left: 800px;
+}
+
+.row .prefix_11 {
+  padding-left: 880px;
+}
+
+/* `Suffix Extra Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.row .suffix_1 {
+  padding-right: 80px;
+}
+
+.row .suffix_2 {
+  padding-right: 160px;
+}
+
+.row .suffix_3 {
+  padding-right: 240px;
+}
+
+.row .suffix_4 {
+  padding-right: 320px;
+}
+
+.row .suffix_5 {
+  padding-right: 400px;
+}
+
+.row .suffix_6 {
+  padding-right: 480px;
+}
+
+.row .suffix_7 {
+  padding-right: 560px;
+}
+
+.row .suffix_8 {
+  padding-right: 640px;
+}
+
+.row .suffix_9 {
+  padding-right: 720px;
+}
+
+.row .suffix_10 {
+  padding-right: 800px;
+}
+
+.row .suffix_11 {
+  padding-right: 880px;
+}
+
+/* `Push Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.row .push_1 {
+  left: 80px;
+}
+
+.row .push_2 {
+  left: 160px;
+}
+
+.row .push_3 {
+  left: 240px;
+}
+
+.row .push_4 {
+  left: 320px;
+}
+
+.row .push_5 {
+  left: 400px;
+}
+
+.row .push_6 {
+  left: 480px;
+}
+
+.row .push_7 {
+  left: 560px;
+}
+
+.row .push_8 {
+  left: 640px;
+}
+
+.row .push_9 {
+  left: 720px;
+}
+
+.row .push_10 {
+  left: 800px;
+}
+
+.row .push_11 {
+  left: 880px;
+}
+
+/* `Pull Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.row .pull_1 {
+  left: -80px;
+}
+
+.row .pull_2 {
+  left: -160px;
+}
+
+.row .pull_3 {
+  left: -240px;
+}
+
+.row .pull_4 {
+  left: -320px;
+}
+
+.row .pull_5 {
+  left: -400px;
+}
+
+.row .pull_6 {
+  left: -480px;
+}
+
+.row .pull_7 {
+  left: -560px;
+}
+
+.row .pull_8 {
+  left: -640px;
+}
+
+.row .pull_9 {
+  left: -720px;
+}
+
+.row .pull_10 {
+  left: -800px;
+}
+
+.row .pull_11 {
+  left: -880px;
+}
+
+/* `Clear Floated Elements
+----------------------------------------------------------------------------------------------------*/
+
+/* http://sonspring.com/journal/clearing-floats */
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+/* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified */
+
+.clearfix:before,
+.clearfix:after,
+.row:before,
+.row:after {
+  content: '.';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  font-size: 0;
+  line-height: 0;
+  width: 0;
+  height: 0;
+}
+
+.clearfix:after,
+.row:after {
+  clear: both;
+}
+
+/*
+  The following zoom:1 rule is specifically for IE6 + IE7.
+  Move to separate stylesheet if invalid CSS is a problem.
+*/
+
+.clearfix,
+.row {
+  zoom: 1;
+}

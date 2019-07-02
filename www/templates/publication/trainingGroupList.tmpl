@@ -1,0 +1,16 @@
+<!-- template:traininggroups -->
+<script type="text/x-tmpl" id="tmpl-trainingGroupList">
+
+    {% for (var i=0, boxes; boxes=o.result[i]; i++) { %}
+    <li class="{% if (boxes.badge == 0){ %} disabled {% } %} mediaBox mbcholder span2"
+        data-object-id="{%=boxes.id%}"
+        data-object-type="traininggroup"
+        data-object-name="{%=boxes.doname%}">
+        <div class="mbHeader">
+            <div class="name">{%=boxes.name%}</div>
+            <span class="pull-right badge">{%=boxes.badge%}</span>
+            <div class="pointer-left"></div>
+        </div>
+    </li>
+    {% } %}
+</script>

@@ -1,0 +1,184 @@
+LÉPÉSEK:
+
+0. SKILLDEV_BNIHUNGARY ADATBAZIS LETREHOZASA, ES A SLABOO USER HOZZARENDELESE A TABLAHOZ
+1. IMPORTALNI A BNI ELES ADATBAZIST A SKILLDEV_BNIHUNGARY ADATBAZISBA
+2. LEFUTTATNI A KOVETKEZO SQLEKET (AZ ELSO 2 UPDATE OPCIONALIS):
+
+UPDATE `user_u` SET user_email=REPLACE(user_email,".hu",".hx") WHERE 1;
+UPDATE `user_u` SET user_email=REPLACE(user_email,".com",".cox") WHERE 1;
+UPDATE `user_u` SET user_email=REPLACE(user_email,".net",".nex") WHERE 1;
+UPDATE `user_u` SET user_email=REPLACE(user_email,".org",".orx") WHERE 1;
+UPDATE `user_u` SET `pwd` = 'f7cbcb82b7417cfb39faa04bbf84f0699255c1921beb2de91ac386f2ecbbc2408b05deaad994f77e83fabe5196063118a4cd3a21c0c8a1a954c6ba2ca7aff7a5' WHERE `user_u`.`u_id` =12;
+
+
+ALTER TABLE `ipcheck` CHANGE `loggedip` `loggedip` tinytext  NOT NULL ;
+ALTER TABLE `ipcheck` ADD `user_email` varchar(50)  NULL  DEFAULT NULL;
+ALTER TABLE `media_mymedia` CHANGE `office_nametag` `office_nametag` varchar(20)  NOT NULL  DEFAULT "";
+ALTER TABLE `media_mymedia` CHANGE `name` `name` varchar(100)  NOT NULL  DEFAULT "";
+ALTER TABLE `media_mymedia` CHANGE `type` `type` varchar(10)  NOT NULL  DEFAULT "";
+ALTER TABLE `media_mymedia` CHANGE `folder` `folder` varchar(15)  NOT NULL  DEFAULT "";
+ALTER TABLE `media_mymedia` CHANGE `mediatype` `mediatype` varchar(10)  NOT NULL  DEFAULT "";
+ALTER TABLE `media_mymedia` CHANGE `mediaurl` `mediaurl` varchar(250)  NOT NULL  DEFAULT "";
+ALTER TABLE `media_mymedia` CHANGE `thumbnail_url` `thumbnail_url` varchar(250)  NOT NULL  DEFAULT "";
+ALTER TABLE `media_mymedia` CHANGE `duration` `duration` varchar(12)  NULL  DEFAULT "";
+ALTER TABLE `media_mymedia` CHANGE `filesize` `filesize` varchar(12)  NULL  DEFAULT "";
+ALTER TABLE `office` ADD `fileSystemQuota` int(6)  NOT NULL  DEFAULT "0";
+ALTER TABLE `slide_slides` CHANGE `tag` `tag` varchar(45)  NULL  DEFAULT "";
+ALTER TABLE `slide_slides` ADD `transform` varchar(50)  NULL  DEFAULT NULL;
+ALTER TABLE `slide_slides` CHANGE `missingContent` `missingContent` varchar(200)  NULL  DEFAULT "";
+ALTER TABLE `slide_slideshow` CHANGE `diskArea_id` `diskArea_id` bigint(20)  NULL  DEFAULT NULL;
+ALTER TABLE `slide_slideshow` ADD `mediabox_id` int(11)  NOT NULL  DEFAULT "0";
+ALTER TABLE `slide_slideshow` CHANGE `office_nametag` `office_nametag` varchar(20)  NOT NULL ;
+ALTER TABLE `slide_slideshow` CHANGE `name` `name` varchar(100)  NOT NULL  DEFAULT "";
+ALTER TABLE `slide_slideshow` CHANGE `isEnabled` `isEnabled` int(1)  NOT NULL  DEFAULT "1";
+ALTER TABLE `slide_slideshow` ADD `templateSlideCount` int(11)  NULL  DEFAULT NULL;
+ALTER TABLE `training_results` ADD `answer` text  NULL  DEFAULT NULL;
+ALTER TABLE `training_slideshow` CHANGE `startDate` `startDate` date  NULL  DEFAULT NULL;
+ALTER TABLE `training_slideshow` CHANGE `endDate` `endDate` date  NULL  DEFAULT NULL;
+ALTER TABLE `training_slideshow` CHANGE `timeout1` `timeout1` time  NULL  DEFAULT NULL;
+ALTER TABLE `training_slideshow` CHANGE `timeout2` `timeout2` time  NULL  DEFAULT NULL;
+ALTER TABLE `training_slideshow` CHANGE `wtimeout1` `wtimeout1` time  NULL  DEFAULT NULL;
+ALTER TABLE `training_slideshow` CHANGE `wtimeout2` `wtimeout2` time  NULL  DEFAULT NULL;
+ALTER TABLE `training_slideshow` CHANGE `testtype` `testtype` int(1)  NULL  DEFAULT "0";
+ALTER TABLE `training_slideshow` ADD `deleted` int(1)  NOT NULL  DEFAULT "0";
+ALTER TABLE `training_training` ADD `startDate` date  NULL  DEFAULT NULL;
+ALTER TABLE `training_training` ADD `endDate` date  NULL  DEFAULT NULL;
+ALTER TABLE `training_training` ADD `parent_id` int(11)  NOT NULL  DEFAULT "0";
+ALTER TABLE `training_training` ADD `deleted` int(1)  NOT NULL  DEFAULT "0";
+ALTER TABLE `training_training` ADD `traininggroups` text  NULL  DEFAULT NULL;
+ALTER TABLE `user_traininggroup` CHANGE `name` `name` varchar(15)  NOT NULL  DEFAULT "";
+ALTER TABLE `user_traininggroup` CHANGE `doname` `doname` varchar(15)  NOT NULL  DEFAULT "";
+ALTER TABLE `user_u` CHANGE `user_type` `user_type` varchar(7)  NULL  DEFAULT "";
+ALTER TABLE `user_u` CHANGE `elotag` `elotag` varchar(5)  NULL  DEFAULT "";
+ALTER TABLE `user_u` CHANGE `user_name` `user_name` varchar(20)  NULL  DEFAULT "";
+ALTER TABLE `user_u` CHANGE `parent_id` `parent_id` bigint(20)  NULL  DEFAULT "0";
+ALTER TABLE `user_u` CHANGE `pwd` `pwd` varchar(220)  NULL  DEFAULT "";
+ALTER TABLE `user_u` CHANGE `user_tel` `user_tel` varchar(20)  NULL  DEFAULT "";
+ALTER TABLE `user_u` CHANGE `birthDate` `birthDate` date  NULL  DEFAULT NULL;
+ALTER TABLE `user_u` ADD `description` text  NULL  DEFAULT NULL;
+ALTER TABLE `user_u` ADD `cv` text  NULL  DEFAULT NULL;
+ALTER TABLE `user_u` ADD `profilePicture` longtext  NULL  DEFAULT NULL;
+ALTER TABLE `user_u` CHANGE `users_ip` `users_ip` varchar(200)  NULL  DEFAULT "";
+ALTER TABLE `user_u` CHANGE `activation_code` `activation_code` varchar(25)  NULL  DEFAULT "";
+ALTER TABLE `user_u` CHANGE `activation_time` `activation_time` datetime  NULL  DEFAULT "0000-00-00 00:00:00";
+ALTER TABLE `user_u` CHANGE `activeState` `activeState` int(1) unsigned zerofill  NOT NULL  DEFAULT "0";
+ALTER TABLE `user_u` CHANGE `banned` `banned` int(1) unsigned zerofill  NOT NULL  DEFAULT "0";
+ALTER TABLE `user_u` CHANGE `ckey` `ckey` varchar(220)  NULL  DEFAULT "";
+ALTER TABLE `user_u` CHANGE `ctime` `ctime` varchar(220)  NULL  DEFAULT "";
+ALTER TABLE `user_u` CHANGE `depth` `depth` bigint(20) unsigned  NOT NULL  DEFAULT "0";
+ALTER TABLE `user_u` CHANGE `lft` `lft` bigint(20) unsigned  NOT NULL  DEFAULT "0";
+ALTER TABLE `user_u` CHANGE `rgt` `rgt` bigint(20) unsigned  NOT NULL  DEFAULT "0";
+ALTER TABLE `user_u` CHANGE `loginattempt` `loginattempt` int(11) unsigned  NULL  DEFAULT "0";
+ALTER TABLE `user_u` CHANGE `cryptedText` `cryptedText` varchar(50)  NOT NULL  DEFAULT "";
+ALTER TABLE `user_u` ADD `deleted` int(1)  NOT NULL  DEFAULT "0";
+ALTER TABLE `user_u` ADD `pemail` varchar(50)  NULL  DEFAULT NULL;
+ALTER TABLE `user_usergroup` CHANGE `name` `name` varchar(15)  NOT NULL  DEFAULT "";
+ALTER TABLE `user_usergroup` CHANGE `doname` `doname` varchar(15)  NOT NULL  DEFAULT "";
+
+
+
+
+CREATE TABLE IF NOT EXISTS `actionlogger` (
+  `actionlog_id` int(11) NOT NULL AUTO_INCREMENT,
+  `u_id` int(11) NOT NULL,
+  `office_id` int(11) NOT NULL,
+  `office_nametag` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `ipaddress` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `type` int(1) NOT NULL,
+  `action_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `message` text COLLATE utf8_unicode_ci NOT NULL,
+  `request` mediumblob,
+  `object` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`actionlog_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+CREATE TABLE IF NOT EXISTS `starrating` (
+  `office_id` int(11) NOT NULL,
+  `u_id` int(11) NOT NULL,
+  `id` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `rate` int(1) NOT NULL,
+  `ts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`office_id`,`u_id`,`id`),
+  KEY `rate` (`rate`,`ts`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+CREATE TABLE IF NOT EXISTS `training_slideshow_score` (
+  `tss_id` int(11) NOT NULL AUTO_INCREMENT,
+  `training_id` int(11) NOT NULL,
+  `slideshow_id` int(11) NOT NULL,
+  `type` int(1) DEFAULT NULL,
+  `testtype` int(1) DEFAULT NULL,
+  `office_id` int(11) NOT NULL,
+  `u_id` int(11) NOT NULL,
+  `token_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `created` timestamp NULL DEFAULT NULL,
+  `max_credit` int(11) NOT NULL,
+  `credit` int(11) NOT NULL,
+  `max_point` int(11) NOT NULL,
+  `point` int(11) NOT NULL,
+  `success` int(1) NOT NULL,
+  `rate` int(1) NOT NULL,
+  `visited` int(1) NOT NULL DEFAULT '0',
+  `archive` int(1) NOT NULL DEFAULT '0',
+  `deleted` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`tss_id`),
+  KEY `visited` (`visited`),
+  KEY `archive` (`archive`),
+  KEY `rate` (`rate`),
+  KEY `success` (`success`),
+  KEY `created` (`created`),
+  KEY `u_id` (`u_id`),
+  KEY `token_id` (`token_id`),
+  KEY `deleted` (`deleted`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+CREATE TABLE IF NOT EXISTS `training_users` (
+  `trusers_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `training_id` bigint(20) NOT NULL DEFAULT '0',
+  `slideshow_id` bigint(20) NOT NULL DEFAULT '0',
+  `u_id` bigint(20) NOT NULL DEFAULT '0',
+  `maxCredit` int(20) DEFAULT '0',
+  `credit` int(20) DEFAULT '0',
+  `finished` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`trusers_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+ALTER TABLE `ipcheck` DROP `username`;
+ALTER TABLE `slide_slideshow` DROP `isVisible`;
+ALTER TABLE `training_slideshow` CHANGE `training_ss_id` `ts_id` INT( 11 ) NOT NULL AUTO_INCREMENT ;
+ALTER TABLE slide_slides DROP INDEX html_index;
+ALTER TABLE media_diskarea DROP INDEX name;
+TRUNCATE TABLE ipcheck;
+ALTER TABLE `ipcheck` ADD PRIMARY KEY(`id`);
+ALTER TABLE `ipcheck` CHANGE `id` `id` INT( 11 ) NOT NULL AUTO_INCREMENT ;
+
+
+
+4. OPCIONALIS, FIGYELNI KESOBBIEKBEN HOGY VALTOZOTT E A GROUP KIOSZTAS A TRENINGEKHEZ:
+
+UPDATE training_training SET traininggroups=IF(training_id=43,15,14);
+UPDATE training_slideshow SET startDate=NULL,endDate=NULL,timeout1=NULL,timeout2=NULL,wtimeout1=NULL,wtimeout2=NULL;
+UPDATE training_slideshow SET type=1 WHERE testtype=2;
+
+UPDATE user_u SET birthDate=NULL WHERE birthDate="0000-00-00";
+
+5. LEFUTTATNI A KOVETKEZO SQLEKET:
+ALTER TABLE `training_slideshow`
+  DROP `departments`,
+  DROP `traininggroups`,
+  DROP `users`,
+  DROP `startupCode`;
+
+ALTER TABLE `user_u` DROP `users_kep`;
+
+6. Utils/upgradebnidb.php php futtatasa (:.................: eredmenyt irja vissza a konzolra, ha R betut ir az baj)
+
+
+7. LEFUTTATNI A KOVETKEZO SQLEKET A PHP UTAN!:
+
+DROP TABLE `user_usergroupusers`;
+

@@ -1,0 +1,18 @@
+<!-- template mini miniTrainings-->
+<script type="text/x-tmpl" id="tmpl-miniTrainings">
+    {% for (var i=0, slides; slide=o.result[i]; i++) { %}
+    <li id="{%=slide.id%}" class="publicationElement trainingslide span2 {%=slide.state%}">
+        <div class="colorBar {%=slide.state%}"></div>
+        <div class="dataHolder">
+            <div class="pointer-right"></div>
+            <div class="leftSide">
+                {% if (slide.cover !== null){ %}<img src="{%=slide.cover%}"/>{% } %}
+            </div>
+            <div class="rightSide">
+                <span class="name">{%=slide.title%}</span>
+                <span class="colorTr {%=slide.state%}"></span>
+            </div>
+        </div>
+    </li>
+    {% } %}
+</script>

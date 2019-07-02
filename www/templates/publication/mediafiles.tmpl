@@ -1,0 +1,32 @@
+<!-- template: display myMediaFiles -->
+<script type="text/x-tmpl" id="tmpl-mediaElement">
+    {% for (var i=0, file; file=o.result[i]; i++) { %}
+    <li class="mediaElement span2 lightgreyB {%=file.type%}"
+        data-category="{%=file.type%}"
+        data-name="{%=file.name%}"
+        data-date="{%=file.uploaded_ts%}"
+        data-mediabox="{%=clearNULL(file.boxid)%}"
+        data-mediaurl="{% if (file.mediatype == 'remote'){ %}{%=file.mediaurl%}{% } else { %}<?= $imageURL; ?>{%=file.mediaurl%}{% } %}"
+        data-mediatype="{%=file.mediatype%}"
+        data-id="{%=file.id%}"
+        data-video-width="{%=file.videoWidth%}"
+        data-video-height="{%=file.videoHeight%}">
+        <div class="colorBar {%=file.type%}"></div>
+        <div class="thumbBorder">
+                    <div class="thumbnail">
+                        <img src="{% if (file.mediatype == 'remote') { %}{%=file.thumbnail_url%}{% } else { %}<?= $imageURL; ?>{%=file.thumbnail_url%}{% } %}" alt=""/>
+                    </div>
+                </div>
+        <div class="caption aligncenter">
+                    <h6><span class="name">{%=file.name.substring(0,19)%}</span></h6>
+                    <p class="hidden subdetails"><span class="uploaded">{%=file.uploaded%}</span><span class="type">{%=file.type%}</span>
+                        {% if (file.duration) { %}<span class="duration">{%=file.duration%}</span>{% } %}
+                        {% if (file.filesize) { %}<span class="filesize">{%=file.filesize%}</span>{% } %}
+                    </p>
+                </div>
+        <div class="optionBar">
+            <span class="deleteButton"><i class="icon-minus"></i></span>
+        </div>
+    </li>
+    {% } %}
+</script>

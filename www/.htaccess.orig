@@ -1,0 +1,57 @@
+
+
+Options -Indexes
+php_value post_max_size 30M
+php_value upload_max_filesize 30M
+
+Options +FollowSymLinks
+
+<filesMatch "\.(html|php|js|css)$">
+FileETag None
+<ifModule mod_headers.c>
+Header unset ETag
+Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+Header set Pragma "no-cache"
+Header set Expires "Wed, 11 Jan 1984 05:00:00 GMT"
+</ifModule>
+</filesMatch>
+
+<ifModule mod_php4.c>
+ php_value zlib.output_compression 16386
+</ifModule>
+
+
+# Rewrite section
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{HTTP_HOST} ^www.skill.madein.hu$
+RewriteRule (.*) http://skill.madein.hu$1 [R,L]
+
+
+RewriteRule ^logout$ logout.php [NC,L]
+
+
+RewriteCond %{HTTP_HOST} ^(^.*).skill.madein.hu$
+RewriteCond %{HTTP_HOST} !=^www.skill.madein.hu$
+RewriteRule /media/(.*) http://media.skill.madein.hu/%1/$1 [P]
+
+
+#language select
+RewriteCond %{HTTP:Accept-Language} ^.*(de|hu|en).*$ [NC]
+RewriteRule ^(.*)$ - [env=prefer-language:%1]
+
+
+#RewriteCond %{QUERY_STRING} !sEcho=(.*)(([^&]*&)*)
+RewriteRule ^process(/|$) do.php [QSA,R,L]
+RewriteRule ^crawl$ do.php [NC,QSA,L]
+
+#RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L]
+
+ErrorDocument 302 /errordocuments/404.php
+ErrorDocument 403 /errordocuments/403forbidden.php
+ErrorDocument 404 /errordocuments/404.php
+ErrorDocument 500 /errordocuments/404.php

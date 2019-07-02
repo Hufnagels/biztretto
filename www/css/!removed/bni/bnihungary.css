@@ -1,0 +1,96 @@
+body.impress-enabled.bnihungary {background: #651935;}
+
+.userBrand {
+background: #651935;
+height: 35px;
+padding: 10px;
+}
+.userBrand .slogen {
+color:white;
+padding: 10px 0 10px 10px;
+}
+.userBrand .slogen:before {
+color:white;
+font-style:italic;
+font-size:130%;
+font-weight:bold;
+content:'Changing the Way the World Does Business';
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.userBrand .sup:before {
+content: "\2122";/*R"\00ae";*/ /*tm \2122*/
+vertical-align: sub;padding-top:5px;
+color:white;
+}
+
+.userBrand .companylogo {
+background-image: url(BNIlogo.png);
+background-repeat: no-repeat;
+width: 75px;
+height: 35px;
+}
+
+/*slideshow*/
+.corporateHeader {
+position:absolute;
+top:0;
+left:0;
+right:0;
+height:18%;
+padding: 0px;
+
+}
+.corporateHeader.row{margin-left: 0px;}
+
+.corporateHeader .companyLogo {
+/*background: url(PreziBNI.jpg);
+background-size: 100% 100%;*/
+height: 100%;
+width: 15%;
+float:right;
+}
+.corporateHeader .companyLogo2 {
+/*background: url(PreziFoldresz.jpg);
+background-size: 100% 100%;*/
+height: 100%;
+width: 55%;
+}
+#corporateFooter .userBrand {background-image:none;}
+#corporateFooter .userBrand .slogen:before, #corporateFooter .userBrand .sup:before {color:white;}
+
+.pointer-right1ss {border: solid 48px transparent;border-left-color: #CBCBCB;position: absolute;float: right;z-index: 1;top: 50%;right: 0px;cursor:pointer;pointer-events: auto}
+.pointer-right2ss {border: solid 40px transparent;border-left-color: #651935;position: absolute;float: right;z-index: 1;top: 51%;right: 20px;cursor:pointer;pointer-events: auto}
+.pointer-left1ss {border: solid 48px transparent;border-right-color: #CBCBCB;position: absolute;float: left;z-index: 1;top: 50%;left: 0px;cursor:pointer;pointer-events: auto}
+.pointer-left2ss {border: solid 40px transparent;border-right-color: #651935;position: absolute;float: left;z-index: 1;top: 51%;left: 20px;cursor:pointer;pointer-events: auto}
+.pointer-right1ss, .pointer-right2ss, .pointer-left1ss, .pointer-left2ss {
+dispaly:block;
+opacity: 1;
+
+    -webkit-transform: translateY(0px);
+    -moz-transform:    translateY(0px);
+    -ms-transform:     translateY(0px);
+    -o-transform:      translateY(0px);
+    transform:         translateY(0px);
+    -webkit-transition: opacity 1s 5s, -webkit-transform 0.5s 4.5s;
+    -moz-transition:    opacity 1s 5s,    -moz-transform 0.5s 4.5s;
+    -ms-transition:     opacity 1s 5s,     -ms-transform 0.5s 4.5s;
+    -o-transition:      opacity 1s 5s,      -o-transform 0.5s 4.5s;
+    transition:         opacity 1s 5s,         transform 0.5s 4.5s;
+}
+
+body.impress-on-slide_1 .pointer-left1ss,
+body.impress-on-slide_1 .pointer-left2ss {
+display:none;
+opacity: 0;
+    -webkit-transform: translateY(400px);
+    -moz-transform:    translateY(400px);
+    -ms-transform:     translateY(400px);
+    -o-transform:      translateY(400px);
+    transform:         translateY(400px);
+    -webkit-transition: opacity 1s, -webkit-transform 0.5s 1s;
+    -moz-transition:    opacity 1s,    -moz-transform 0.5s 1s;
+    -ms-transition:     opacity 1s,     -ms-transform 0.5s 1s;
+    -o-transition:      opacity 1s,      -o-transform 0.5s 1s;
+    transition:         opacity 1s,         transform 0.5s 1s;
+}
+.menu-item:hover {color: white;background: #651935;}
